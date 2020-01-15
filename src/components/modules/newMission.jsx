@@ -1,7 +1,5 @@
 import React from 'react'
 
-import '../../assets/scss/modules/newMission.scss'
-
 const newMission = () => {
   
   return(

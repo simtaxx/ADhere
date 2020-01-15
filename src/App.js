@@ -1,17 +1,21 @@
 import React from 'react'
 
-import './assets/scss/general/reset.scss'
-import './assets/scss/general/app.scss'
+import './assets/scss/general.scss'
 
+import HeaderContext from './store/headerContext'
+import Header from './components/layouts/header'
 import Routes from './components/router/router'
 
 
 const App = () => {
   
   return (
-    <React.Fragment className="App">
+    <div className="App">
+      <HeaderContext.Provider value="Accueil">
+        <Header />
+      </HeaderContext.Provider>
       <Routes></Routes>
-    </React.Fragment>
+    </div>
   );
 }
 export default App

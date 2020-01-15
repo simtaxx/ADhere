@@ -1,16 +1,13 @@
 import React from 'react'
 
-import Header from '../components/layouts/header'
-
-import '../assets/scss/views/audience.scss'
-
 const Audience = () => {
   
   return(
     <div class="audience">
-      <Header></Header>
       <div class="big-gap">
-        <h3>Lancement de la nouvelle collection automne</h3>
+        <h3>Audience de votre mission</h3>
+        <p>Créez votre audience</p>
+        <p>Définissez qui doit voir votre affichage</p>
       </div>
     </div>
   )

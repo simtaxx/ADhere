@@ -1,17 +1,15 @@
-import React from "react"
-import '../../assets/scss/layouts/header.scss'
+import React from 'react'
 
-const Header = () => {
-  
-  return(
+import HeaderContext from '../../store/headerContext'
+
+export default () => (
     <header>
-      <ul class="header">
-        <li><h1 class="title">ADhere</h1></li>
-        <li>Acceuil</li>
-        <li class="username">lise boulot</li>
-      </ul>
+      <h1 class="logo">ADhere</h1>
+      <HeaderContext.Consumer>
+        {
+          value => <p>{value}</p>
+        }
+      </HeaderContext.Consumer>
+      <p class="username">Lise Boulot</p>
     </header>
-  )
-}
-
-export default Header
+)

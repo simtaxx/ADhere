@@ -1,5 +1,11 @@
-// gaps
+// Gaps
 
 .big-gap {
-  margin: 24px 364px 0;
+  margin: rem(24) rem(364);
+}
+
+// Typo
+
+h3 {
+  font-size: rem(21);
 }
