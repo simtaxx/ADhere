@@ -2,7 +2,7 @@ import React from 'react'
 
 import '../../assets/scss/modules/history.scss'
 
-export default function history() {
+const history = () => {
   
   return(
     <div class="history">
@@ -10,3 +10,5 @@ export default function history() {
     </div>
   )
 }
+
+export default history

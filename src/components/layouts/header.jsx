@@ -1,7 +1,7 @@
 import React from "react"
 import '../../assets/scss/layouts/header.scss'
 
-export default function Header() {
+const Header = () => {
   
   return(
     <header>
@@ -13,3 +13,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default Header

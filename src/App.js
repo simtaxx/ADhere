@@ -5,13 +5,11 @@ import './assets/scss/general/app.scss'
 
 import Routes from './components/router/router'
 
-import Header from './components/layouts/header'
 
-function App() {
+const App = () => {
   
   return (
     <React.Fragment className="App">
-      <Header></Header>
       <Routes></Routes>
     </React.Fragment>
   );

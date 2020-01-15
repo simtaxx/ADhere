@@ -2,7 +2,7 @@ import React from 'react'
 
 import '../../assets/scss/modules/newMission.scss'
 
-export default function newMission() {
+const newMission = () => {
   
   return(
     <div class="newMission">
@@ -10,3 +10,5 @@ export default function newMission() {
     </div>
   )
 }
+
+export default newMission

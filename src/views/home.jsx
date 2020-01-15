@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 import NewMission from '../components/modules/newMission'
 import History from '../components/modules/history'
 
-export default function Home() {
+const Home = () => {
   
   return(
     <div class="home big-gap">
@@ -18,3 +18,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home
