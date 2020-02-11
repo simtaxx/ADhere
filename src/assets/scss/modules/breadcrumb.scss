@@ -4,7 +4,7 @@
   justify-content: space-between;
   width: 100%;
   height: rem(68);
-  margin-top: rem(100);
+  margin-top: rem(40);
   box-shadow: 0px 2px 5px rgba(0, 0, 95, 0.1);
   border-radius: rem(2);
 
@@ -19,7 +19,7 @@
   .breadcrumb__element--is-active {
     border-radius: rem(2);
     box-shadow: 1px 10px 15px rgba(0, 0, 95, 0.15);
-    background: white;
+    background: $white;
     transform: scale(1.1);
   }
 

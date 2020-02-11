@@ -1,18 +1,14 @@
 form {
 
   .input-button-container {
-    display: block;
     position: relative;
     padding-left: rem(35);
     margin-bottom: rem(60);
     margin-top: rem(24);
-    color: #3C3736;
+    color: $black;
     cursor: pointer;
     font-size: rem(12);
     width: 40%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
   }
 

@@ -55,11 +55,6 @@ const trial= () => {
               <input class="input-button-trial" type="button"/>
               <span class="button-trial"></span>
             </label>
-            <label class="input-button-container">
-              <p>Halterophilie</p>
-              <input class="input-button-trial" type="button"/>
-              <span class="button-trial"></span>
-            </label>
           </div>
         </form>
         <Breadcrumb isActive="trial"></Breadcrumb>

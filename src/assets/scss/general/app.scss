@@ -1,36 +1,4 @@
-// Gaps
-
-.big-gap {
-  margin: rem(24) rem(364);
-}
-
-// Typo
-
-h2 {
-  font-size: rem(21);
-  margin-bottom: rem(16)
-}
-
-h3 {
-  font-size: rem(16);
-  margin-bottom: rem(4);
-  font-weight: bold;
-}
-
-.description {
-  font-size: rem(10);
-  color: #7B7B7B;
-}
-
-.placeholder {
-  font-size: rem(10);
-  color: #BDBDBD;
-  padding-left: rem(20);
-  padding-top: rem(8);
-}
-
 // input 
-
 
 .input-container {
   width: 100%;
@@ -56,7 +24,7 @@ h3 {
   margin-top: rem(10) !important;
   width: calc(100% - 40px);
   font-size: rem(14);
-  color: #3C3736;
+  color: $brown;
   all: unset;
 }
 
@@ -64,7 +32,7 @@ h3 {
   width: 90%;
   margin: rem(20) auto;
   font-size: rem(14);
-  color: #3C3736;
+  color: $brown;
   all: unset;
 }
 
@@ -74,12 +42,9 @@ h3 {
   padding-left: rem(35);
   margin-bottom: rem(12);
   margin-top: rem(24);
-  color: #3C3736;
+  color: $brown;
   cursor: pointer;
   font-size: rem(12);
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   
   p {
@@ -110,11 +75,11 @@ h3 {
   }
 
   input:checked ~ .checkmark {
-    background-color: #2BA6CB;
+    background-color: $primaryBlue;
   }
 }
 .input-button {
-  background-color: #2BA6CB;
+  background-color: $primaryBlue;
   padding: 10px 16px;
   margin-top: rem(24);
   margin-left: 0;

@@ -1,0 +1,27 @@
+// Typo
+html {
+  color: $black;
+}
+
+h2 {
+  font-size: rem(21);
+  margin-bottom: rem(16)
+}
+
+h3 {
+  font-size: rem(16);
+  margin-bottom: rem(4);
+  font-weight: bold;
+}
+
+.description {
+  font-size: rem(10);
+  color: #7B7B7B;
+}
+
+.placeholder {
+  font-size: rem(10);
+  color: #BDBDBD;
+  padding-left: rem(20);
+  padding-top: rem(8);
+}
