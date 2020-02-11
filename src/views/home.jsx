@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { Link } from "react-router-dom"
-
+import Header from '../components/layouts/header'
 import NewMission from '../components/modules/newMission'
 import History from '../components/modules/history'
 
@@ -9,9 +8,9 @@ const Home = () => {
   
   return(
     <div class="home">
+      <Header title="Accueil"></Header>
       <div class="big-gap">
         <h2 class="hello">Bonjour Lise !</h2>
-        <Link to="/audience">Audience</Link>
         <NewMission></NewMission>
         <History></History>
       </div>

@@ -4,7 +4,7 @@ const history = () => {
   
   return(
     <div class="history">
-      <h3>Commencez une nouvelle mission</h3>
+      <h3>Historique de vos recherches</h3>
     </div>
   )
 }

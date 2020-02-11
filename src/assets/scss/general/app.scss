@@ -6,6 +6,127 @@
 
 // Typo
 
-h3 {
+h2 {
   font-size: rem(21);
+  margin-bottom: rem(16)
+}
+
+h3 {
+  font-size: rem(16);
+  margin-bottom: rem(4);
+  font-weight: bold;
+}
+
+.description {
+  font-size: rem(10);
+  color: #7B7B7B;
+}
+
+.placeholder {
+  font-size: rem(10);
+  color: #BDBDBD;
+  padding-left: rem(20);
+  padding-top: rem(8);
+}
+
+// input 
+
+
+.input-container {
+  width: 100%;
+  height: rem(55);
+  border-radius: 1px;
+  box-shadow: 0 4px 7px rgba(96, 96, 96, .1);
+  margin-top: rem(24);
+  margin-bottom: rem(16);
+  
+  &--flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+    .input-container {
+      width: 48%;
+    }
+  }
+}
+
+.input-text {
+  margin-left: rem(20) !important;
+  margin-top: rem(10) !important;
+  width: calc(100% - 40px);
+  font-size: rem(14);
+  color: #3C3736;
+  all: unset;
+}
+
+.input-date {
+  width: 90%;
+  margin: rem(20) auto;
+  font-size: rem(14);
+  color: #3C3736;
+  all: unset;
+}
+
+.input-checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: rem(35);
+  margin-bottom: rem(12);
+  margin-top: rem(24);
+  color: #3C3736;
+  cursor: pointer;
+  font-size: rem(12);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  p {
+    padding-top: rem(5);
+  }
+
+  .input-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: rem(25);
+    width: rem(25);
+    box-shadow: 0px 2px 5px rgba(0, 0, 95, 0.1);
+    border-radius: 1px;
+    transition: .2s;
+  }
+
+  .checkmark:hover {
+    background-color: rgba(54, 146, 174, 0.2);
+  }
+
+  input:checked ~ .checkmark {
+    background-color: #2BA6CB;
+  }
+}
+.input-button {
+  background-color: #2BA6CB;
+  padding: 10px 16px;
+  margin-top: rem(24);
+  margin-left: 0;
+  border: none;
+  border-radius: 100px;
+  box-shadow: 1px 2px 7px rgba(247, 146, 86, 0.4);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.input-button:focus {
+  outline: none;
 }

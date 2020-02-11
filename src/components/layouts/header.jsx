@@ -1,15 +1,10 @@
 import React from 'react'
 
-import HeaderContext from '../../store/headerContext'
 
-export default () => (
+export default (props) => (
     <header>
       <h1 class="logo">ADhere</h1>
-      <HeaderContext.Consumer>
-        {
-          value => <p>{value}</p>
-        }
-      </HeaderContext.Consumer>
+      <p>{props.title}</p>
       <p class="username">Lise Boulot</p>
     </header>
 )

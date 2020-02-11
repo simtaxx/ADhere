@@ -1,0 +1,37 @@
+form {
+
+  .input-button-container {
+    display: block;
+    position: relative;
+    padding-left: rem(35);
+    margin-bottom: rem(60);
+    margin-top: rem(24);
+    color: #3C3736;
+    cursor: pointer;
+    font-size: rem(12);
+    width: 40%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .input-button-trial {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .button-trial {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: rem(84);
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 95, 0.1);
+    border-radius: 1px;
+    transition: .2s;
+  }
+}
