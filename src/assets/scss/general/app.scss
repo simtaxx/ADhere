@@ -24,7 +24,7 @@
   margin-top: rem(10) !important;
   width: calc(100% - 40px);
   font-size: rem(14);
-  color: $brown;
+  color: $black;
   all: unset;
 }
 
@@ -32,7 +32,7 @@
   width: 90%;
   margin: rem(20) auto;
   font-size: rem(14);
-  color: $brown;
+  color: $black;
   all: unset;
 }
 
@@ -42,7 +42,7 @@
   padding-left: rem(35);
   margin-bottom: rem(12);
   margin-top: rem(24);
-  color: $brown;
+  color: $black;
   cursor: pointer;
   font-size: rem(12);
   user-select: none;
@@ -86,7 +86,7 @@
   border: none;
   border-radius: 100px;
   box-shadow: 1px 2px 7px rgba(247, 146, 86, 0.4);
-  color: white;
+  color: $white;
   font-weight: bold;
   text-decoration: none;
   cursor: pointer;
