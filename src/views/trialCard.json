@@ -1,0 +1,42 @@
+{
+  "card_1": {
+    "title" : "Haltérophilie",
+    "subtitle" : "% de correspondance",
+    "icon" : "/assets/icons/sports/Halterophilie.png"
+  },
+  "card_2": {
+    "title" : "Haltérophilie",
+    "subtitle" : "% de correspondance",
+    "icon" : "../icons/sports/Halterophilie.png"
+  },
+  "card_3": {
+    "title" : "Haltérophilie",
+    "subtitle" : "% de correspondance",
+    "icon" : "../icons/sports/Halterophilie.png"
+  },
+  "card_4": {
+    "title" : "Haltérophilie",
+    "subtitle" : "% de correspondance",
+    "icon" : "../icons/sports/Halterophilie.png"
+  },
+  "card_5": {
+    "title" : "Haltérophilie",
+    "subtitle" : "% de correspondance",
+    "icon" : "../icons/sports/Halterophilie.png"
+  },
+  "card_6": {
+    "title" : "Haltérophilie",
+    "subtitle" : "% de correspondance",
+    "icon" : "../icons/sports/Halterophilie.png"
+  },
+  "card_7": {
+    "title" : "Haltérophilie",
+    "subtitle" : "% de correspondance",
+    "icon" : "../icons/sports/Halterophilie.png"
+  },
+  "card_8": {
+    "title" : "Haltérophilie",
+    "subtitle" : "% de correspondance",
+    "icon" : "../icons/sports/Halterophilie.png"
+  }
+}

@@ -25,3 +25,22 @@ h3 {
   padding-left: rem(20);
   padding-top: rem(8);
 }
+
+.title-card {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.7px;
+}
+
+.subtitle-card {
+  font-family: Arial;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 140%;
+  text-transform: lowercase;
+  color: $grey;
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const newMission = () => {
   
@@ -24,7 +25,9 @@ const newMission = () => {
           <input class="input-checkbox" type="checkbox"/>
           <span class="checkmark"></span>
         </label>
-        <input class="input-button" type="button" value="CONTINUER"/>
+        <Link to="/audience">
+          <input class="input-button" type="button" value="CONTINUER"/>
+        </Link>
       </form>
     </div>
   )

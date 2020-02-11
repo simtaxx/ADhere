@@ -1,7 +1,12 @@
 import React from 'react'
 
 import Header from '../components/layouts/header'
-import Breadcrumb from '../components/modules/breadcrumb'
+import Breadcrumb from '../components/modules/breadcrumb';
+import TrialCards from './trialCard.json'
+import TrialCard from '../components/ui/trialCard'
+
+console.log(TrialCards)
+const CardsArray = Object.values(TrialCards)
 
 const trial= () => {
   
@@ -14,47 +19,9 @@ const trial= () => {
         <p class="description">Plus la correspondance est élevée plus le public touché correspondra a votre audience ciblé</p>
         <form>
           <div className="input-container--flex">
-
-            <label class="input-button-container">
-              <p>Halterophilie</p>
-              <input class="input-button-trial" type="button"/>
-              <span class="button-trial"></span>
-            </label>
-            <label class="input-button-container">
-              <p>Halterophilie</p>
-              <input class="input-button-trial" type="button"/>
-              <span class="button-trial"></span>
-            </label>
-            <label class="input-button-container">
-              <p>Halterophilie</p>
-              <input class="input-button-trial" type="button"/>
-              <span class="button-trial"></span>
-            </label>
-            <label class="input-button-container">
-              <p>Halterophilie</p>
-              <input class="input-button-trial" type="button"/>
-              <span class="button-trial"></span>
-            </label>
-            <label class="input-button-container">
-              <p>Halterophilie</p>
-              <input class="input-button-trial" type="button"/>
-              <span class="button-trial"></span>
-            </label>
-            <label class="input-button-container">
-              <p>Halterophilie</p>
-              <input class="input-button-trial" type="button"/>
-              <span class="button-trial"></span>
-            </label>
-            <label class="input-button-container">
-              <p>Halterophilie</p>
-              <input class="input-button-trial" type="button"/>
-              <span class="button-trial"></span>
-            </label>
-            <label class="input-button-container">
-              <p>Halterophilie</p>
-              <input class="input-button-trial" type="button"/>
-              <span class="button-trial"></span>
-            </label>
+            { CardsArray.map( card => {
+              return <TrialCard title={card.title} subtitle={card.subtitle} icon={card.icon} />
+            }) }
           </div>
         </form>
         <Breadcrumb isActive="trial"></Breadcrumb>
