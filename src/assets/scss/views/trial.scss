@@ -3,7 +3,7 @@ form {
   .input-button-container {
     position: relative;
     padding-left: rem(35);
-    margin-bottom: rem(60);
+    margin-bottom: rem(80);
     margin-top: rem(24);
     color: $black;
     cursor: pointer;
@@ -22,6 +22,7 @@ form {
 
   .button-trial {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     position: absolute;
     top: 0;
@@ -32,6 +33,12 @@ form {
     border-radius: 1px;
     transition: .2s;
   }
+
+  input:checked ~ .button-trial{
+    border: 1px solid #F79256;
+    box-shadow: 0px 2px 5px rgba(0, 0, 95, 0.1);
+  }
+
   .button-text {
     height: 50%;
     display: flex;
@@ -39,4 +46,30 @@ form {
     justify-content: space-between;
     padding-left: rem(20);
   }
+
+  .icon-card {
+    margin-right: rem(20);
+  }
+}
+
+.next-arrow {
+  position: absolute;
+  right: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: rem(50);
+  height: rem(50);
+  background: red;
+  cursor: pointer;
+}
+
+.previous-arrow {
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: rem(50);
+  height: rem(50);
+  background: red;
+  cursor: pointer;
 }

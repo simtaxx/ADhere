@@ -1,42 +1,122 @@
 {
   "card_1": {
-    "title" : "Haltérophilie",
+    "title" : "Athletisme",
     "subtitle" : "% de correspondance",
-    "icon" : "/assets/icons/sports/Halterophilie.png"
+    "icon" : "athletisme"
   },
   "card_2": {
-    "title" : "Haltérophilie",
+    "title" : "Aviron",
     "subtitle" : "% de correspondance",
-    "icon" : "../icons/sports/Halterophilie.png"
+    "icon" : "aviron"
   },
   "card_3": {
-    "title" : "Haltérophilie",
+    "title" : "Badminton",
     "subtitle" : "% de correspondance",
-    "icon" : "../icons/sports/Halterophilie.png"
+    "icon" : "badminton"
   },
   "card_4": {
-    "title" : "Haltérophilie",
+    "title" : "Baseball",
     "subtitle" : "% de correspondance",
-    "icon" : "../icons/sports/Halterophilie.png"
+    "icon" : "baseball"
   },
   "card_5": {
-    "title" : "Haltérophilie",
+    "title" : "Boxe",
     "subtitle" : "% de correspondance",
-    "icon" : "../icons/sports/Halterophilie.png"
+    "icon" : "boxe"
   },
   "card_6": {
-    "title" : "Haltérophilie",
+    "title" : "Canoë slalom",
     "subtitle" : "% de correspondance",
-    "icon" : "../icons/sports/Halterophilie.png"
+    "icon" : "Canoë slalom"
   },
   "card_7": {
-    "title" : "Haltérophilie",
+    "title" : "Canoë sprint",
     "subtitle" : "% de correspondance",
-    "icon" : "../icons/sports/Halterophilie.png"
+    "icon" : "canoë sprint"
   },
   "card_8": {
-    "title" : "Haltérophilie",
+    "title" : "Cyclisme sur piste",
     "subtitle" : "% de correspondance",
-    "icon" : "../icons/sports/Halterophilie.png"
+    "icon" : "cyclisme sur piste"
+  },
+  "card_9": {
+    "title" : "cyclisme sur route",
+    "subtitle" : "% de correspondance",
+    "icon" : "cyclisme sur route"
+  },
+  "card_10": {
+    "title" : "Escalade",
+    "subtitle" : "% de correspondance",
+    "icon" : "escalade"
+  },
+  "card_11": {
+    "title" : "Escrime",
+    "subtitle" : "% de correspondance",
+    "icon" : "escrime"
+  },
+  "card_12": {
+    "title" : "Football",
+    "subtitle" : "% de correspondance",
+    "icon" : "football"
+  },
+  "card_13": {
+    "title" : "Golf",
+    "subtitle" : "% de correspondance",
+    "icon" : "golf"
+  },
+  "card_14": {
+    "title" : "Gymnastique artistique",
+    "subtitle" : "% de correspondance",
+    "icon" : "gymnastique artistique"
+  },
+  "card_15": {
+    "title" : "Gymnastique rythmique",
+    "subtitle" : "% de correspondance",
+    "icon" : "gymnastique rythmique"
+  },
+  "card_16": {
+    "title" : "Halterophilie",
+    "subtitle" : "% de correspondance",
+    "icon" : "Halterophilie"
+  },
+  "card_17": {
+    "title" : "Handball",
+    "subtitle" : "% de correspondance",
+    "icon" : "Handball"
+  },
+  "card_18": {
+    "title" : "Hockey sur gazon",
+    "subtitle" : "% de correspondance",
+    "icon" : "hockey sur gazon"
+  },
+  "card_19": {
+    "title" : "Judo",
+    "subtitle" : "% de correspondance",
+    "icon" : "judo"
+  },
+  "card_20": {
+    "title" : "Karaté",
+    "subtitle" : "% de correspondance",
+    "icon" : "Karaté"
+  },
+  "card_21": {
+    "title" : "Lutte greco-romaine",
+    "subtitle" : "% de correspondance",
+    "icon" : "lutte greco-romaine"
+  },
+  "card_22": {
+    "title" : "Lutte libre",
+    "subtitle" : "% de correspondance",
+    "icon" : "lutte libre"
+  },
+  "card_23": {
+    "title" : "Natation de marathon",
+    "subtitle" : "% de correspondance",
+    "icon" : "natation de marathon"
+  },
+  "card_24": {
+    "title" : "Natation synchronisé",
+    "subtitle" : "% de correspondance",
+    "icon" : "Natation synchronisé"
   }
 }
