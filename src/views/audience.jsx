@@ -27,8 +27,8 @@ const Audience = () => {
               <input className="input-text" type="text"/>
             </div>
           </div>
-          <div classNameName="input-container--flex">
-            <div classNameName="input-container">
+          <div className="input-container--flex">
+            <div className="input-container">
               <select name="" id="">
                 <option value="">Sexe</option>
                 <option value="ref1">Homme</option>
@@ -36,7 +36,7 @@ const Audience = () => {
                 <option value="ref2">Truc chelou</option>
               </select>
             </div>
-            <div classNameName="input-container">
+            <div className="input-container">
               <select name="" id="">
                 <option value="">Catégorie socio-professionnelle</option>
                 <option value="ref1">Homme</option>
@@ -46,7 +46,7 @@ const Audience = () => {
             </div>
           </div>
         </form>
-        <Breadcrumb isActive="audience" />
+        <Breadcrumb pathRef="audience"/>
       </div>
     </div>
   )

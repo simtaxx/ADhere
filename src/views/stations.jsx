@@ -15,7 +15,7 @@ const Audience = () => {
           <p className="description">Vous pourrez après choisir les gares a proximité où vous pourrez afficher votre  publicité </p>
         </div>
         <div className="semi-container">
-          <Breadcrumb isActive="stations" />
+          <Breadcrumb pathRef="stations" />
         </div>
       </div>
     </div>

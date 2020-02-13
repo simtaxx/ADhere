@@ -25,7 +25,7 @@ const newMission = () => {
           <input className="input-checkbox" type="checkbox"/>
           <span className="checkmark"></span>
         </label>
-        <Link to="/audience">
+        <Link to="/audience/audience">
           <input className="input-button" type="button" value="CONTINUER"/>
         </Link>
       </form>

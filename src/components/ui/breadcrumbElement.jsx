@@ -1,22 +1,18 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
-const breadcrumbElement = (props) => {
+const BreadcrumbElement = ({ path, text, classRef }) => {
+
+  const pathRef = Object.values(useParams())[0]
 
   return (
     <div className="breadcrumb__element-container">
-      <Link className={ 'breadcrumb__element ' + ( props.isActive === 'audience' || 'trial' || 'station' ? 'breadcrumb__element--is-active' : '') } to="/audience">
-        <p>Audience</p>
-      </Link>
-      <Link className={ 'breadcrumb__element ' + ( props.isActive === 'trial' ? 'breadcrumb__element--is-active' : '') } to="/trial">
-        <p>Épreuves</p>
-      </Link>
-      <Link className={ 'breadcrumb__element ' + ( props.isActive === 'station' ? 'breadcrumb__element--is-active' : '') } to="/stations">
-        <p>Stations</p>
+      <Link className={ 'breadcrumb__element ' + classRef + ( path === pathRef ? ' breadcrumb__element--is-active' : '') } to={ `/${ path }/${ path }` }>
+        <p>{ text }</p>
       </Link>
     </div>
   )
 }
 
-export default breadcrumbElement
+export default BreadcrumbElement

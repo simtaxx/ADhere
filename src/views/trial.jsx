@@ -10,8 +10,6 @@ const Trial= () => {
 
   const cardsArray = Object.values(TrialCards)
 
-  //let cardsArrayCopy = JSON.parse(JSON.stringify(CardsArray))
-
   const makePagination = (array, per_page) => {
     let arrayPaginated = [[]]
     let i = 0
@@ -74,7 +72,7 @@ const Trial= () => {
         </form>
         <span className="previous-arrow" onClick={ () => previousPage() }></span>
         <span className="next-arrow" onClick={ () => nextPage() }></span>
-        <Breadcrumb isActive="trial"></Breadcrumb>
+        <Breadcrumb pathRef="trial"></Breadcrumb>
       </div>
     </div>
   )
