@@ -7,11 +7,11 @@ import BreadcrumbElement from '../ui/breadcrumbElement'
 const Breadcrumb = (props) => {
 
   return(
-    <div class="breadcrumb">
+    <div className="breadcrumb">
       <BreadcrumbElement isActive={ props.isActive }></BreadcrumbElement>
-      <Link to="/trial" class="breadcrumb__element breadcrumb__button">
+      <Link to="/trial" className="breadcrumb__element breadcrumb__button">
         <div>
-          <input class="input-button" type="button" value="CONTINUER"/>
+          <input className="input-button" type="button" value="CONTINUER"/>
         </div>
       </Link>
     </div>

@@ -7,10 +7,10 @@ import History from '../components/modules/history'
 const Home = () => {
   
   return(
-    <div class="home">
+    <div className="home">
       <Header title="Accueil"></Header>
-      <div class="big-gap">
-        <h2 class="hello">Bonjour Lise !</h2>
+      <div className="big-gap">
+        <h2 className="hello">Bonjour Lise !</h2>
         <NewMission></NewMission>
         <History></History>
       </div>

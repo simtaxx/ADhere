@@ -6,29 +6,29 @@ import Breadcrumb from '../components/modules/breadcrumb'
 const Audience = () => {
   
   return(
-    <div class="audience">
+    <div className="audience">
       <Header title="Audience"></Header>
-      <div class="big-gap">
+      <div className="big-gap">
         <h2>Audience de votre campagne</h2>
         <h3>Créez votre audience</h3>
-        <p class="description">Définissez qui doit voir votre affichage</p>
+        <p className="description">Définissez qui doit voir votre affichage</p>
         <form>
-          <div class="input-container">
-            <p class="placeholder">Entrez le nom de votre audience</p>
-            <input class="input-text" type="text"/>
-          </div>
-          <div class="input-container--flex">
-            <div class="input-container">
-              <p class="placeholder">Age minimum</p>
-              <input class="input-text" type="text"/>
-            </div>
-            <div class="input-container">
-              <p class="placeholder">Age maximum</p>
-              <input class="input-text" type="text"/>
-            </div>
+          <div className="input-container">
+            <p className="placeholder">Entrez le nom de votre audience</p>
+            <input className="input-text" type="text"/>
           </div>
           <div className="input-container--flex">
             <div className="input-container">
+              <p className="placeholder">Age minimum</p>
+              <input className="input-text" type="text"/>
+            </div>
+            <div className="input-container">
+              <p className="placeholder">Age maximum</p>
+              <input className="input-text" type="text"/>
+            </div>
+          </div>
+          <div classNameName="input-container--flex">
+            <div classNameName="input-container">
               <select name="" id="">
                 <option value="">Sexe</option>
                 <option value="ref1">Homme</option>
@@ -36,7 +36,7 @@ const Audience = () => {
                 <option value="ref2">Truc chelou</option>
               </select>
             </div>
-            <div className="input-container">
+            <div classNameName="input-container">
               <select name="" id="">
                 <option value="">Catégorie socio-professionnelle</option>
                 <option value="ref1">Homme</option>

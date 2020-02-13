@@ -34,7 +34,7 @@ form {
     transition: .2s;
   }
 
-  input:checked ~ .button-trial{
+  .is-active{
     border: 1px solid #F79256;
     box-shadow: 0px 2px 5px rgba(0, 0, 95, 0.1);
   }

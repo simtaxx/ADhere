@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const trialCard = ({ title, subtitle, icon },) => {
-  
+const TrialCard = ({ classProps, title, subtitle, icon }) => {
+
+  const onChangeFavorite = (event)  => {
+    console.log(event.target.checked);
+  };
+
   return(
     <label className="input-button-container">
-      <input className="input-button-trial" type="checkbox"/>
-      <span className="button-trial">
+      <input onChange={ onChangeFavorite } className="input-button-trial" type="checkbox"/>
+      <span className={ classProps }>
         <div className="button-text">
           <p className="title-card">{title}</p>
           <p className="subtitle-card">{subtitle}</p>
@@ -16,4 +20,4 @@ const trialCard = ({ title, subtitle, icon },) => {
   )
 }
 
-export default trialCard
+export default TrialCard

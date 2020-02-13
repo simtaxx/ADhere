@@ -3,3 +3,12 @@
 .big-gap {
   margin: rem(24) rem(364);
 }
+
+.small-gap {
+  display: flex;
+  margin: rem(24) rem(40);
+}
+
+.semi-container {
+  width: calc(50% - 20px);
+}

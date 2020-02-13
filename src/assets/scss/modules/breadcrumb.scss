@@ -8,23 +8,28 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 95, 0.1);
   border-radius: rem(2);
 
+  .breadcrumb__element-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+
   .breadcrumb__element {
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 1 0 25%;
     height: 100%;
+    opacity: 0;
   }
 
   .breadcrumb__element--is-active {
     border-radius: rem(2);
     box-shadow: 1px 10px 15px rgba(0, 0, 95, 0.15);
     background: $white;
+    opacity: 1;
     transform: scale(1.1);
-  }
-
-  .breadcrumb__element--is-hidden {
-    opacity: 0;
   }
 
   .breadcrumb__button {
