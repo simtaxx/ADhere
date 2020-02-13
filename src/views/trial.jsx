@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Header from '../components/layouts/header'
 import Breadcrumb from '../components/modules/breadcrumb';
@@ -7,84 +7,64 @@ import TrialCard from '../components/ui/trialCard'
 
 
 const Trial= () => {
+  const [idPage , setIdPage] = useState(0)
+  const [cards , setCards] = useState(0)
+  const creatCardModel = (card, i) => {
+    let model = {...card, checked: false , key: 'card__' + i}
+    return model
+  }
 
-  const cardsArray = Object.values(TrialCards)
-
-  const makePagination = (array, per_page) => {
-    let arrayPaginated = [[]]
-    let i = 0
-
-    array.forEach(card => {
-      if ( arrayPaginated[i].length < per_page) {
-        arrayPaginated[i].push(card)
-      } else {
-        i++
-        arrayPaginated.push([])
-      }
+  const cardsBycard = () => {
+    let newCards = [[]]
+    let current = 0
+      Object.values(TrialCards).forEach( (card, i) => {
+        if ( 7 < newCards[current].length ) {
+          newCards.push([])
+          current++
+        }
+        newCards[current].push( creatCardModel(card , i))
     });
-    return arrayPaginated
+    setCards(newCards)
   }
 
-  const makeStateArray = (array) => {
-    let arrayState = [[]]
-
-    for(let i = 1; i < array.length ; i++) {
-      if ( array[i].length > i) {
-        arrayState.push([])
-      }
+  useEffect(()=>{
+    if (!cards){
+      cardsBycard()
     }
-    return arrayState
-  }
-  const arrayPage = makePagination(cardsArray, 8)
-  const [array] = useState( arrayPage )
-  const [page, setPage] = useState( 0 )
-  const [state, setState] = useState( false )
-  console.log(makeStateArray(arrayPage))
+  })
 
-  const nextPage = () => {
-    if (page === 0) {
-      setPage( 1 )
-    } else if ( page === 1 ) {
-      setPage( 2 )
-    }
+  const setNewValue = (i) => {
+    let newCards = JSON.parse(JSON.stringify(cards))
+    newCards[idPage][i].checked = newCards[idPage][i].checked ? false : true 
+    setCards(newCards)
   }
 
-  const previousPage = () => {
-    if (page === 2) {
-      setPage( 1 )
-    } else if ( page === 1 ) {
-      setPage( 0 )
-    }
-  }
-
-  const check = () => {
-    if ( state ) {
-      return 'button-trial is-active'
-    } else {
-      return 'button-trial'
-    }
-  }
-
-  return(
+  return (
     <div className="Epreuve">
-      <Header title="Audience"></Header>
-      <div className="big-gap">
-        <h2>Épreuves disponible aux dates séléctionnées</h2>
-        <h3>Choisisez les épreuves qui vous intéressent</h3>
-        <p className="description">Plus la correspondance est élevée plus le public touché correspondra a votre audience ciblé</p>
-        <form>
-          <div className="input-container--flex" >
-            { array[page].map( (card, key) => {
-              return <TrialCard onClick={ () => setState( true ) } key={ `${key}-${page}` } classProps={ check() }  title={card.title} subtitle={card.subtitle} icon={card.icon} />
-            }) }
-          </div>
-        </form>
-        <span className="previous-arrow" onClick={ () => previousPage() }></span>
-        <span className="next-arrow" onClick={ () => nextPage() }></span>
-        <Breadcrumb pathRef="trial"></Breadcrumb>
-      </div>
+    <Header title="Audience"></Header>
+    <div className="big-gap">
+      <h2>Épreuves disponible aux dates séléctionnées</h2>
+      <h3>Choisisez les épreuves qui vous intéressent</h3>
+      <p className="description">Plus la correspondance est élevée plus le public touché correspondra a votre audience ciblé</p>
+      <form>
+        <div className="input-container--flex" >
+          {
+            cards[idPage] ?         
+            cards.find((e,id)=> idPage === id ).map( (trialCard, i) => {
+              return <TrialCard {...trialCard} setNewValue={()=>{ setNewValue(i) }} />
+            })
+            : ''
+          }
+        </div>
+      </form>
+      <span className="previous-arrow" onClick={ () => setIdPage( idPage > 0 ? idPage - 1 : idPage) }></span>
+      <span className="next-arrow" onClick={ () => setIdPage( idPage < 2 ? idPage + 1 : idPage) }></span>
+      <Breadcrumb pathRef="trial"></Breadcrumb>
     </div>
+  </div>
   )
 }
+
+// onClick={ () => setState( true ) } key={ `${key}-${page}` } classProps={ check() }  title={card.title} subtitle={card.subtitle} icon={card.icon} 
 
 export default Trial
