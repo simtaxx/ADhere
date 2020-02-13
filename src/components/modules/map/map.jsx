@@ -155,9 +155,7 @@ function Map(props) {
   useEffect(mapAppFunc, []);
 
   return (
-    <>
     <div id="map_id" className="map" style={{height: props.height}} />
-    </>
     );
 }
 
