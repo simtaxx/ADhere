@@ -1,0 +1,50 @@
+.stations-card {
+  height: rem(138);
+  box-shadow: 1px 10px 20px rgba(121, 117, 117, 0.13);
+  padding: rem(20) rem(20);
+  margin-top: rem(30);
+
+  &__title-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: rem(30);
+    height: rem(30);
+    margin-right: rem(5);
+    background: red;
+  }
+
+  &__stats-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: rem(30);
+  }
+
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: rem(45);
+  }
+
+  &__stat-text {
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 140%;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: $grey;
+  }
+
+  &__stat-numbers {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.25px;
+  }
+
+}
