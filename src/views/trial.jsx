@@ -22,15 +22,24 @@ const Trial= () => {
         arrayPaginated.push([])
       }
     });
-    console.log(arrayPaginated)
-
     return arrayPaginated
   }
 
+  const makeStateArray = (array) => {
+    let arrayState = [[]]
+
+    for(let i = 1; i < array.length ; i++) {
+      if ( array[i].length > i) {
+        arrayState.push([])
+      }
+    }
+    return arrayState
+  }
   const arrayPage = makePagination(cardsArray, 8)
-  const [array, setArray] = useState( arrayPage )
+  const [array] = useState( arrayPage )
   const [page, setPage] = useState( 0 )
   const [state, setState] = useState( false )
+  console.log(makeStateArray(arrayPage))
 
   const nextPage = () => {
     if (page === 0) {
