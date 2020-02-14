@@ -4,6 +4,7 @@ import Header from '../components/layouts/header'
 import Breadcrumb from '../components/modules/breadcrumb';
 import TrialCards from './trialCard.json'
 import TrialCard from '../components/ui/trialCard'
+import Save from '../components/ui/save'
 
 
 const Trial= () => {
@@ -56,10 +57,11 @@ const Trial= () => {
             : ''
           }
         </div>
+        <Save/>
       </form>
       <span className="previous-arrow" onClick={ () => setIdPage( idPage > 0 ? idPage - 1 : idPage) }></span>
       <span className="next-arrow" onClick={ () => setIdPage( idPage < 2 ? idPage + 1 : idPage) }></span>
-      <Breadcrumb pathRef="trial"></Breadcrumb>
+      <Breadcrumb pathRef="trial" />
     </div>
   </div>
   )

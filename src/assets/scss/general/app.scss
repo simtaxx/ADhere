@@ -1,12 +1,6 @@
 // input 
 
 .input-container {
-  width: 100%;
-  height: rem(55);
-  border-radius: 1px;
-  box-shadow: 0 4px 7px rgba(96, 96, 96, .1);
-  margin-top: rem(24);
-  margin-bottom: rem(16);
   
   &--flex {
     display: flex;
@@ -20,12 +14,17 @@
 }
 
 .input-text {
-  margin-left: rem(20) !important;
   margin-top: rem(10) !important;
-  width: calc(100% - 40px);
+  padding-left: rem(20) !important;
   font-size: rem(14);
   color: $black;
   all: unset;
+  width: 100%;
+  height: rem(55);
+  border-radius: 1px;
+  box-shadow: 0 4px 7px rgba(96, 96, 96, .1);
+  margin-top: rem(24);
+  margin-bottom: rem(16);
 }
 
 .input-date {

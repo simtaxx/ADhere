@@ -28,6 +28,10 @@
     justify-content: space-between;
     align-items: center;
     height: rem(45);
+
+    &:first-child {
+      font-weight: bold;
+    }
   }
 
   &__stat-text {
@@ -40,7 +44,6 @@
   }
 
   &__stat-numbers {
-    font-weight: bold;
     font-size: 16px;
     line-height: 140%;
     text-align: center;

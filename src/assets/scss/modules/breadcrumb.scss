@@ -35,12 +35,11 @@
   }
 
   .breadcrumb__element--is-active {
-    border-radius: rem(2);
-    box-shadow: 1px 10px 15px rgba(0, 0, 95, 0.15);
-    background: $white;
-    transform: scale(1.1);
     opacity: 1;
     pointer-events: initial;
+    .breadcrumb__elements-count-container {
+      background: $secondaryOrange;
+    }
   }
 
   .is-showed {
@@ -52,11 +51,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1 0 25%;
-    height: 100%;
+    width: rem(96);
+    height: rem(34);
+    opacity: 1;
+    margin-top: 0;
+    margin-right: rem(20);
+    margin-left: rem(20);
 
     input {
       margin: 0;
     }
+  }
+
+  .breadcrumb__elements-count-container {
+    position: relative;
+    background: $primaryBlue;
+    border-radius: 50%;
+    width: rem(14);
+    height: rem(14);
+    margin-right: rem(7);
+  }
+
+  .breadcrumb__elements-count {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -50%);
+    color: $white;
+    font-size: rem(12);
+    padding-left: 2px;
   }
 }

@@ -1,11 +1,12 @@
 import React from 'react'
 
+
 import Header from '../components/layouts/header'
 import Breadcrumb from '../components/modules/breadcrumb'
 import StationsCard from '../components/ui/stationsCard'
 
 const Audience = () => {
-  
+
   return(
     <div className="audience">
       <Header title="Gares"></Header>
@@ -17,7 +18,7 @@ const Audience = () => {
           <StationsCard></StationsCard>
         </div>
         <div className="semi-container">
-          <Breadcrumb pathRef="stations" />
+        <Breadcrumb pathRef="stations" />
         </div>
       </div>
     </div>
