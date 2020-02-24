@@ -54,22 +54,48 @@ form {
 
 .next-arrow {
   position: absolute;
-  right: 100px;
+  right: rem(280);
   top: 50%;
   transform: translateY(-50%);
   width: rem(50);
   height: rem(50);
-  background: red;
+  background: $white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 95, 0.1);
   cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: rem(15);
+    height: rem(15);
+    background-image: url("../../icons/right-arrow.png");
+    background-size: cover;
+  }
 }
 
 .previous-arrow {
   position: absolute;
-  left: 100px;
+  left: rem(280);
   top: 50%;
   transform: translateY(-50%);
   width: rem(50);
   height: rem(50);
-  background: red;
+  background: $white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 95, 0.1);
   cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: rem(15);
+    height: rem(15);
+    background-image: url("../../icons/left-arrow.png");
+    background-size: cover;
+  }
 }

@@ -1,15 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const TrialCard = ({ classProps, title, subtitle, icon }) => {
-
-  const onChangeFavorite = (event)  => {
-    console.log(event.target.checked);
-  };
+const TrialCard = ({ title, subtitle, icon , checked ,setNewValue}) => {
 
   return(
-    <label className="input-button-container">
-      <input onChange={ onChangeFavorite } className="input-button-trial" type="checkbox"/>
-      <span className={ classProps }>
+    <label onChange={setNewValue} className="input-button-container">
+      <input className="input-button-trial" checked={checked ? true : false} type="checkbox"/>
+      <span className={ checked ? "button-trial is-active" : "button-trial" }>
         <div className="button-text">
           <p className="title-card">{title}</p>
           <p className="subtitle-card">{subtitle}</p>
