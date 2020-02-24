@@ -22,7 +22,7 @@ const Pin = props => {
       >
         <img
           alt="pin"
-          src="Halterophilie.png"
+          src= {props.pinImg}
           style={{
             height: "50px",
             width: "50px"
@@ -82,7 +82,7 @@ export default function GanttChart(props) {
           data={props.data}
           y={y0}
           x={x}
-          dataComponent={<Pin />}
+          dataComponent={<Pin pinImg= {props.pin}/>}
           style={{
             data: { fill: "red" },
             labels: { fill: "#F79256", fontSize: 20 }

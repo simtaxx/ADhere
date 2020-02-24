@@ -94,8 +94,8 @@ function Donut(props) {
 
   return (
     <>
-      <div style={{ height: props.height, width: props.width }}>
-        <svg id={`svg${props.id}`} />
+      <div style={{ height: props.height, width: props.width, display: 'flex', alignItems:'center' }}>
+        <svg id={`svg${props.id}`} style={{margin: 'auto'}}/>
       </div>
     </>
   );
