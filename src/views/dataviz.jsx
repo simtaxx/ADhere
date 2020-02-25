@@ -64,23 +64,26 @@ var data1 = [
 ];
 
 var data2 = [
-  { dateA: "07/25/2024", dateB: "07/30/2024", federation: "athletisme" },
-  { dateA: "07/29/2024", dateB: "08/03/2024", federation: "handball" },
-  { dateA: "08/05/2024", dateB: "08/09/2024", federation: "football" }
+  { dateA: "07/25/2024", dateB: "07/30/2024", federation: "athletisme", icon:'athletisme' },
+  { dateA: "07/29/2024", dateB: "08/03/2024", federation: "handball", icon:'handball'  },
+  { dateA: "08/05/2024", dateB: "08/09/2024", federation: "football", icon:'football' }
 ];
 var dataEventLocation = [
   {
-    name: "Gare de Lyon",
+    name: "Football",
+    icon:'football',
     location: [48.8443038, 2.3743773],
     stations: 0
   },
   {
-    name: "Chatelet les Halles",
+    name: "Athletisme",
+    icon:'athletisme',
     location: [48.8620543, 2.3449645],
     stations: 0
   },
   {
-    name: "Nation ",
+    name: "Handball",
+    icon:'handball',
     location: [48.8483634, 2.393789],
     stations: [
       {
@@ -95,9 +98,7 @@ var dataEventLocation = [
   }
 ];
 
-var iconUrlChallenge = 'http://localhost:3000/epreuve.png';
 var iconUrlStation = 'http://localhost:3000/station.png';
-var pinChallenge = 'http://localhost:3000/Halterophilie.png';
 
 const DataViz = ()=>{
 return (
@@ -140,10 +141,10 @@ return (
         <h3>Estimation de l'audience chaque jour</h3>
         <EstimationChart data={data1} height="400px" width="100%" />
         <h3>Répartition des épreuves que vous avez sélectionnées</h3>
-        <GanttChart data={data2} height="400px" width="100%" pin={pinChallenge} />
+        <GanttChart data={data2} height="400px" width="100%" />
       </div>
       <div style={{ width: '50vw' }}>
-        <Map height="90vh" eventLocationData={{ dataEventLocation }} iconUrl={{ iconUrlChallenge, iconUrlStation }} />
+        <Map height="90vh" eventLocationData={{ dataEventLocation }} iconUrl={{iconUrlStation }} />
       </div>
     </div>
   </div>

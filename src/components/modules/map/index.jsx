@@ -15,22 +15,24 @@ function Map(props) {
     }).setView(currentView, nivZoom); // we initialize the map
     var eventLocation = props.eventLocationData.dataEventLocation; //dummy data in the goal to try  the principle
 
-    var Icon = L.icon({
+    var Icon = L.Icon.extend({
       // Création d'icone personalisée
-      iconUrl: props.iconUrl.iconUrlChallenge, // Créer une variable suivant une condition
+       // Créer une variable suivant une condition
 
-      iconSize: [50, 63], // size of the icon
-      iconAnchor: [25, 63], // point of the icon which will correspond to marker's location
-      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+      options :{
+        iconSize: [50, 63], // size of the icon
+        iconAnchor: [25, 63], // point of the icon which will correspond to marker's location
+        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+      }
     }); // We initialise the icon
 
-    var stationIcon = L.icon({
+    var stationIcon = L.Icon.extend({
       // Création d'icone personalisée
-      iconUrl: props.iconUrl.iconUrlStation, // Créer une variable suivant une condition
-
-      iconSize: [30, 34], // size of the icon
-      iconAnchor: [25, 34], // point of the icon which will correspond to marker's location
-      popupAnchor: [-10, -34] // point from which the popup should open relative to the iconAnchor
+      options : {
+        iconSize: [30, 34], // size of the icon
+        iconAnchor: [25, 34], // point of the icon which will correspond to marker's location
+        popupAnchor: [-10, -34] // point from which the popup should open relative to the iconAnchor
+      }
     }); // We initialise the icon
 
     const init = () => {
@@ -79,7 +81,7 @@ function Map(props) {
             if (eventStations.length > 1) {
               eventStations.map(function(d1, index) {
                 var maker1Value = L.marker(d1.location, {
-                  icon: stationIcon
+                  icon: new stationIcon({iconUrl:  require(`../../../assets/icons/sports/station/pin-${index+1}.png`)})
                 }).on("click", () => {
                   alert(d1.name);
                 });
@@ -125,7 +127,8 @@ function Map(props) {
     const instance = () => {
       eventLocation.map((d, i) => {
         currentData.push(d);
-        var makerValue = L.marker(currentData[i].location, { icon: Icon });
+        console.log(currentData);
+        var makerValue = L.marker(currentData[i].location, { icon: new Icon({ iconUrl: require(`../../../assets/icons/sports/map/${currentData[i].icon}.png`)}) });
         var circleValue = L.circle(currentData[i].location, {
           color: "blue",
           fillColor: "blue",

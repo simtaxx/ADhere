@@ -8,7 +8,8 @@ import {
   VictoryTooltip
 } from "victory";
 
-const Pin = props => {
+const Pin = (props) => {
+  let icon = require(`../../../assets/icons/sports/gantt/${props.datum.icon}.png`);
   return (
     <>
       <foreignObject
@@ -22,7 +23,7 @@ const Pin = props => {
       >
         <img
           alt="pin"
-          src= {props.pinImg}
+          src= {icon}
           style={{
             height: "50px",
             width: "50px"
@@ -82,7 +83,7 @@ export default function GanttChart(props) {
           data={props.data}
           y={y0}
           x={x}
-          dataComponent={<Pin pinImg= {props.pin}/>}
+          dataComponent={<Pin/>}
           style={{
             data: { fill: "red" },
             labels: { fill: "#F79256", fontSize: 20 }
