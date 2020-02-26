@@ -4,8 +4,11 @@ import React from 'react'
 import Header from '../components/layouts/header'
 import Breadcrumb from '../components/modules/breadcrumb'
 import StationsCard from '../components/ui/stationsCard'
+import AxiosGet from '../components/mixins/axios'
 
 const Audience = () => {
+
+  AxiosGet('http://127.0.0.1:8000/events')
 
   return(
     <div className="audience">
