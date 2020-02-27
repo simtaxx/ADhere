@@ -1,28 +1,29 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
-import { Link } from "react-router-dom";
 import BreadcrumbElement from '../ui/breadcrumbElement'
 
 
 const Breadcrumb = ({ pathRef }) => {
-  const pathTo = (path) => {
-    if ( path === "audience" ) {
-      return "/trial/trial"
-    } else if ( path === "trial" ) {
-      return "/stations/stations"
+
+  let history = useHistory();
+
+  const pathTo = () => {
+    if ( pathRef === "audience" ) {
+      return history.push( "/trial/trial" )
+    } else if ( pathRef === "trial" ) {
+      return history.push( "/stations/stations" )
+    } else if ( pathRef === "stations" ) {
+      return history.push( "/charts" )
     }
   }
 
   return(
     <div className="breadcrumb">
-      <BreadcrumbElement path = "audience" text = "Audience" classRef='is-showed'/>
-      <BreadcrumbElement path = "trial" text = "Épreuves" classRef={ pathRef === 'stations' ? 'is-showed' : ''}/>
-      <BreadcrumbElement path = "stations"  text = "Gares" />
-      <Link to={ pathTo(pathRef) } className="breadcrumb__button">
-        <div>
-          <input className="input-button" type="button" value="CONTINUER"/>
-        </div>
-      </Link>
+      <BreadcrumbElement path = "audience" text = "Audience" data="audienceData" classRef='is-showed'/>
+      <BreadcrumbElement path = "trial" text = "Épreuves" data="trialData" classRef={ pathRef === 'stations' ? 'is-showed' : ''}/>
+      <BreadcrumbElement path = "stations"  text = "Gares" data="stationsData" />
+      <input onClick={ pathTo } className="breadcrumb__button input-button" type="submit" value="CONTINUER"/>
     </div>
   )
 }

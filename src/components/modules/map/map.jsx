@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import L from "leaflet";
 
 function Map(props) {
-  const mapAppFunc = ()=> {
+  const mapAppFunc = () => {
     var circles = [];
     var maker = [];
     var currentData = [];
@@ -13,8 +13,7 @@ function Map(props) {
     var mymap = L.map("map_id",{
       scrollWheelZoom: false
     }).setView(currentView, nivZoom); // we initialize the map
-    var eventLocation = props.eventLocationData.dataEventLocation; //dummy data in the goal to try  the principle
-
+    var eventLocation = JSON.parse(localStorage.getItem("eventsData")); //dummy data in the goal to try  the principle
     var Icon = L.icon({
       // Création d'icone personalisée
       iconUrl: props.iconUrl.iconUrlChallenge, // Créer une variable suivant une condition
@@ -123,25 +122,27 @@ function Map(props) {
     };
 
     const instance = () => {
-      eventLocation.map((d, i) => {
-        currentData.push(d);
-        var makerValue = L.marker(currentData[i].location, { icon: Icon });
-        var circleValue = L.circle(currentData[i].location, {
-          color: "blue",
-          fillColor: "blue",
-          fillOpacity: 0.1,
-          radius: 750
+        console.log("in condition",eventLocation)
+        eventLocation.map((d, i) => {
+          currentData.push(d);
+          var makerValue = L.marker(currentData[i].location, { icon: Icon });
+          var circleValue = L.circle(currentData[i].location, {
+            color: "blue",
+            fillColor: "blue",
+            fillOpacity: 0.1,
+            radius: 750
+          });
+  
+          maker.push(makerValue);
+          circles.push(circleValue);
+          maker[i].addTo(mymap);
+          maker[i].bindPopup(
+            "<b>" + currentData[i].name + "</b><br>" + currentData[i].location
+          );
+  
+          return onClickPin(i, d);
         });
-
-        maker.push(makerValue);
-        circles.push(circleValue);
-        maker[i].addTo(mymap);
-        maker[i].bindPopup(
-          "<b>" + currentData[i].name + "</b><br>" + currentData[i].location
-        );
-
-        return onClickPin(i, d);
-      });
+      
     };
 
     const main = () => {
@@ -152,8 +153,12 @@ function Map(props) {
     return main(); // Run the main  function
   }
 
-  useEffect(mapAppFunc, []);
-
+  useEffect(()=> {
+    if (props.eventLocationData && props.eventLocationData.length) {
+      mapAppFunc()
+    } 
+  });
+  
   return (
     <div id="map_id" className="map" style={{height: props.height}} />
     );

@@ -5,7 +5,7 @@ import NewMission from '../components/modules/newMission'
 import History from '../components/modules/history'
 
 const Home = () => {
-  
+
   return(
     <div className="home">
       <Header title="Accueil"></Header>
