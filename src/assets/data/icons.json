@@ -1,0 +1,166 @@
+{
+  "card__1" : {
+    "id": 1,
+    "icon": "concours-complet"
+  },
+  "card__2" : {
+    "id": 2,
+    "icon": "dressage"
+  },
+  "card__3" : {
+    "id": 3,
+    "icon": "saut-obstacle"
+  },
+  "card__4" : {
+    "id": 4,
+    "icon": "escrime"
+  },
+  "card__5" : {
+    "id": 5,
+    "icon": "football"
+  },
+  "card__6" : {
+    "id": 6,
+    "icon": "gymnastique-artistique"
+  },
+  "card__7" : {
+    "id": 7,
+    "icon": "gymnastique-rhytmique"
+  },
+  "card__8" : {
+    "id": 8,
+    "icon": "halterophilie"
+  },
+  "card__9" : {
+    "id": 9,
+    "icon": "handball"
+  },
+  "card__10" : {
+    "id": 10,
+    "icon": "hockey"
+  },
+  "card__11" : {
+    "id": 11,
+    "icon": "judo"
+  },
+  "card__12" : {
+    "id": 12,
+    "icon": "athletisme"
+  },
+  "card__13" : {
+    "id": 13,
+    "icon": "aviron"
+  },
+  "card__14" : {
+    "id": 14,
+    "icon": "badminton"
+  },
+  "card__15" : {
+    "id": 15,
+    "icon": "basketball"
+  },
+  "card__16" : {
+    "id": 16,
+    "icon": "boxe"
+  },
+  "card__17" : {
+    "id": 17,
+    "icon": "canoe-sprint"
+  },
+  "card__18" : {
+    "id": 18,
+    "icon": "canoe-slalom"
+  },
+  "card__19" : {
+    "id": 19,
+    "icon": "cyclisme-piste"
+  },
+  "card__20" : {
+    "id": 20,
+    "icon": "vtt"
+  },
+  "card__21" : {
+    "id": 21,
+    "icon": "cyclisme-route"
+  },
+  "card__22" : {
+    "id": 22,
+    "icon": "tir-arc"
+  },
+  "card__23" : {
+    "id": 23,
+    "icon": "triathlon"
+  },
+  "card__24" : {
+    "id": 24,
+    "icon": "voile"
+  },
+  "card__25" : {
+    "id": 25,
+    "icon": "volley-ball"
+  },
+  "card__26" : {
+    "id": 26,
+    "icon": "volley-ball-plage"
+  },
+  "card__27" : {
+    "id": 27,
+    "icon": "golf"
+  },
+  "card__28" : {
+    "id": 28,
+    "icon": "rugby"
+  },
+  "card__29" : {
+    "id": 29,
+    "icon": "karate"
+  },
+  "card__30" : {
+    "id": 30,
+    "icon": "skate"
+  },
+  "card__31" : {
+    "id": 31,
+    "icon": "baseball"
+  },
+  "card__32" : {
+    "id": 32,
+    "icon": "concours-complet"
+  },
+  "card__33" : {
+    "id": 33,
+    "icon": "lutte-libre"
+  },
+  "card__34" : {
+    "id": 34,
+    "icon": "natation"
+  },
+  "card__35" : {
+    "id": 35,
+    "icon": "natation-sinc"
+  },
+  "card__36" : {
+    "id": 36,
+    "icon": "plongeon"
+  },
+  "card__37" : {
+    "id": 37,
+    "icon": "pintathlon"
+  },
+  "card__38" : {
+    "id": 38,
+    "icon": "taekwondo"
+  },
+  "card__39" : {
+    "id": 39,
+    "icon": "tennis"
+  },
+  "card__40" : {
+    "id": 40,
+    "icon": "tennis"
+  },
+  "card__41" : {
+    "id": 41,
+    "icon": "tir-arc"
+  }
+}

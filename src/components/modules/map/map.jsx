@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import L from "leaflet";
 
+import IconsJson from '../../../assets/data/icons.json'
+
 function Map(props) {
   const mapAppFunc = () => {
     var circles = [];
@@ -14,22 +16,23 @@ function Map(props) {
       scrollWheelZoom: false
     }).setView(currentView, nivZoom); // we initialize the map
     var eventLocation = JSON.parse(localStorage.getItem("eventsData")); //dummy data in the goal to try  the principle
-    var Icon = L.icon({
-      // Création d'icone personalisée
-      iconUrl: props.iconUrl.iconUrlChallenge, // Créer une variable suivant une condition
 
-      iconSize: [50, 63], // size of the icon
-      iconAnchor: [25, 63], // point of the icon which will correspond to marker's location
-      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    var Icon = L.Icon.extend({
+      // Création d'icone personalisée
+       // Créer une variable suivant une condition
+      options :{
+        iconSize: [50, 63], // size of the icon
+        iconAnchor: [25, 63], // point of the icon which will correspond to marker's location
+        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+      }
     }); // We initialise the icon
-
-    var stationIcon = L.icon({
+    var stationIcon = L.Icon.extend({
       // Création d'icone personalisée
-      iconUrl: props.iconUrl.iconUrlStation, // Créer une variable suivant une condition
-
-      iconSize: [30, 34], // size of the icon
-      iconAnchor: [25, 34], // point of the icon which will correspond to marker's location
-      popupAnchor: [-10, -34] // point from which the popup should open relative to the iconAnchor
+      options : {
+        iconSize: [30, 34], // size of the icon
+        iconAnchor: [25, 34], // point of the icon which will correspond to marker's location
+        popupAnchor: [-10, -34] // point from which the popup should open relative to the iconAnchor
+      }
     }); // We initialise the icon
 
     const init = () => {
@@ -56,29 +59,13 @@ function Map(props) {
 
         mymap.on("zoomend", function() {
           var mapCenter = mymap.getCenter();
-          var pinLocation = L.latLng(data.location);
-          var mapCenterLat = (Math.round(mapCenter.lat * 1000) / 1000).toFixed(
-            3
-          );
-          var mapCenterLng = (Math.round(mapCenter.lng * 1000) / 1000).toFixed(
-            3
-          );
-          var pinLocationLat = (
-            Math.round(pinLocation.lat * 1000) / 1000
-          ).toFixed(3);
-          var pinLocationLng = (
-            Math.round(pinLocation.lng * 1000) / 1000
-          ).toFixed(3);
+          console.log(mapCenter)
 
-          if (
-            mapCenterLat === pinLocationLat &&
-            mapCenterLng === pinLocationLng
-          ) {
             var eventStations = currentData[el].stations;
             if (eventStations.length > 1) {
               eventStations.map(function(d1, index) {
                 var maker1Value = L.marker(d1.location, {
-                  icon: stationIcon
+                  icon: new stationIcon({iconUrl:  require(`../../../assets/icons/sports/station/pin-${index+1}.png`)})
                 }).on("click", () => {
                   alert(d1.name);
                 });
@@ -116,32 +103,33 @@ function Map(props) {
                 mymap.addLayer(circles[el]);
               }
             }
-          }
         });
       });
     };
 
     const instance = () => {
-        console.log("in condition",eventLocation)
-        eventLocation.map((d, i) => {
-          currentData.push(d);
-          var makerValue = L.marker(currentData[i].location, { icon: Icon });
-          var circleValue = L.circle(currentData[i].location, {
-            color: "blue",
-            fillColor: "blue",
-            fillOpacity: 0.1,
-            radius: 750
-          });
-  
-          maker.push(makerValue);
+      eventLocation.map((element, i) => {
+        currentData.push(element);
+        Object.values(IconsJson).forEach(icon => {
+          if ( icon.id === currentData[i].id_federation ) {
+            currentData[0].icon = icon.icon
+          }
+        });
+        var makerValue = L.marker([ currentData[i].Lat, currentData[i].Lng ], { icon: new Icon({ iconUrl: require(`../../../assets/icons/sports/map/${currentData[0].icon}.png`)}) });
+        var circleValue = L.circle([ currentData[i].Lat, currentData[i].Lng ], {
+          color: "blue",
+          fillColor: "blue",
+          fillOpacity: 0.1,
+          radius: 750
+        });
+        maker.push(makerValue);
           circles.push(circleValue);
           maker[i].addTo(mymap);
           maker[i].bindPopup(
             "<b>" + currentData[i].name + "</b><br>" + currentData[i].location
           );
-  
-          return onClickPin(i, d);
-        });
+          return onClickPin(i, element);
+      });
       
     };
 

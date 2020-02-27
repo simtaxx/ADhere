@@ -32,7 +32,7 @@ const Stations = () => {
           <StationsCard></StationsCard>
         </div>
         <div className="semi-container">
-          <Map height= "500px" eventLocationData={ dataLocal } iconUrl=""></Map>
+          <Map height= "500px" eventLocationData={ dataLocal }></Map>
           <Breadcrumb pathRef="stations" />
         </div>
       </div>
