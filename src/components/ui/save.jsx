@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Save = ( data, category ) => {
+const Save = ( data ) => {
+  
 
   const saveLS = (e) => {
-    localStorage.setItem(category, JSON.stringify(data))
-    console.log(JSON.parse(localStorage.getItem(category)))
     e.preventDefault()
+    localStorage.setItem(data.category, JSON.stringify(data.data))
   }
 
   return (

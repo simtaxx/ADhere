@@ -15,10 +15,9 @@ const Trial= () => {
   const [dataLocal, setDataLocal] = useState( [] )
   const [dataDetails, setDataDetails] = useState( [] )
   const [dataCsp, setDataCsp] = useState( [] )
-  const [dataEvents, setDataEvents] = useState( [] )
 
   const setDetailsParams = () => {
-    let { data } = JSON.parse(localStorage.getItem("audienceData"))
+    let data = JSON.parse(localStorage.getItem("audienceData"))
     let newParams = {}
     data.forEach(element => {
       if ( element.category === "sexe" ) {
@@ -29,30 +28,16 @@ const Trial= () => {
         newParams.federationIds = 1
       }
     })
-    return newParams
-  }
-
-  const setEventsParams = () => {
-    let { data } = JSON.parse(localStorage.getItem("missionData"))
-    let newParams = {}
-    /* data.forEach(element => {
-      if ( element.begin ) {
-        newParams.begin = element.begin
-      } else if ( element.end ) {
-        newParams.end =  element.end
-      }
-    }) */
-    console.log(localStorage.getItem("missionData"))
+    console.log(data)
     return newParams
   }
 
   let formatedParams = setDetailsParams()
-  let formatedParamsEvents = setEventsParams()
   const [ params, setParams ] = useState( formatedParams )
   const [ paramsCsp, setParamsCsp ] = useState( {
     federationIds: "1"
   } )
-  const [ paramsEvents, setParamsEvents ] = useState( formatedParamsEvents )
+
   let pourcentage = 10
 
   const creatCardModel = (card, i) => {
@@ -77,13 +62,12 @@ const Trial= () => {
     ( async () => {
       const resultDetails = await AxiosGet( 'http://127.0.0.1:8000/federationDetails', {params})
       setDataDetails(resultDetails.data);
+      console.log(resultDetails.data)
       const resultCsp = await AxiosGet( 'http://127.0.0.1:8000/federationCsp', {paramsCsp})
       setDataCsp(resultCsp.data);
-      const resultEvents = await AxiosGet( 'http://127.0.0.1:8000/events', {paramsEvents})
-      console.log(resultEvents.data)
-      setDataCsp(resultEvents.data);
+      console.log(resultCsp.data)
     })()
-  }, [params, paramsCsp, paramsEvents]);
+  }, [params, paramsCsp]);
 
   useEffect(() => {
     if (!cards){

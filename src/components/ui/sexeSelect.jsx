@@ -10,7 +10,6 @@ const SexeSelect = ({ category, title, data, setData, key }) => {
   }
 
   const returnData = (value, e) => {
-    console.log(e.current.checked)
 
     if ( e.current.checked ) {
       buttonData.push({value, category})

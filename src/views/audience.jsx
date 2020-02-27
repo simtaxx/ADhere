@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Header from '../components/layouts/header'
 import Breadcrumb from '../components/modules/breadcrumb'
 import Save from '../components/ui/save'
 import SexeSelect from '../components/ui/sexeSelect'
-import { useState } from 'react'
+import AxiosGet from '../components/mixins/axios'
 
 const Audience = () => {
 
@@ -13,6 +13,35 @@ const Audience = () => {
   const csp = [ 'Agriculteur','cadres et profession intel.','profession intermediaire','Ouvrier','Employé','non actif','Retraité','Tout' ]
 
   const [ buttonData, setButtonData ] = useState( [] )
+
+  const setParamsUp = () => {
+    let data = Object.values(JSON.parse(localStorage.getItem("missionData")))
+    let newParams = {}
+    for (let i = 0; i < data.length; i++) {
+      if (i === 0) {
+        console.log("title")
+      } else if (i === 1) {
+        newParams.begin = data[1]
+      } else if (i === 2) {
+        newParams.end = data[2]
+      }
+    }
+    return newParams
+  }
+
+  let formatedParams = setParamsUp()
+  const [ dataEvents, setDataEvents ] = useState( [] )
+  const [ params, setParams ] = useState( formatedParams )
+ 
+  setParamsUp()
+
+  useEffect( () => {
+    ( async () => {
+      const resultEvents = await AxiosGet( 'http://127.0.0.1:8000/events', {params})
+      setDataEvents(resultEvents.data)
+      console.log(resultEvents.data)
+    })()
+  }, [params]);
   
   return(
     <div className="audience">
