@@ -119,22 +119,22 @@ return (
           <div style={{display: 'flex', alignItems: 'center'}}>
             <Donut id="2" data={data} height={"200px"} width={"200px"} />
             <p style={{display: 'flex', flexDirection:'column'}}>
-              <span style={{color: '#F79256'}}>Le nombre de jours</span><br></br>
-              séléctionné pour votre campagne sur les 15 jours d’épreuves
+              <span style={{color: '#F79256'}}>Le nombre d'évènements</span><br></br>
+              que vous couvrerez sur les 360 évènements au total 
             </p>
           </div>
           <div style={{display: 'flex', alignItems: 'center'}}>
             <Donut id="3" data={data} height={"200px"} width={"200px"} />
             <p style={{display: 'flex', flexDirection:'column'}}>
-              <span style={{color: '#F79256'}}>Le nombre de jours</span><br></br>
-              séléctionné pour votre campagne sur les 15 jours d’épreuves
+              <span style={{color: '#F79256'}}>Le pourcentage de personnes</span><br></br>
+              dans votre audience cible en moyenne, sur l'ensemble des élèments que vous couvrez 
             </p>
           </div>
           <div style={{display: 'flex', alignItems: 'center'}}>
             <Donut id="4" data={data} height={"200px"} width={"200px"} />
             <p style={{display: 'flex', flexDirection:'column'}}>
-              <span style={{color: '#F79256'}}>Le nombre de jours</span><br></br>
-              séléctionné pour votre campagne sur les 15 jours d’épreuves
+              <span style={{color: '#F79256'}}>Le nombre de gares</span><br></br>
+              que vous avez sélectionné sur les 79 gares à proximité des évènements 
             </p>
           </div>
         </div>
