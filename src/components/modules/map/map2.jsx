@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import ReactMapGL, { Marker } from 'react-map-gl'
-import icone from '../../../assets/icons/left-arrow.png'
-
+import ReactMapGL, { Marker , Popup} from 'react-map-gl'
 
 require('dotenv').config()
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoiY2hlaWsiLCJhIjoiY2s2a3pzMDE2MDk0azNucGF3cHI1bjhsZiJ9.O5OgNMJeOXTZTVfv7kAuwA'
 
 const MapBox = ({ eventsData }) => {
+  const [ latitude, setLatitude] = useState(48.8534) 
+  const [ longitude, setLongitude] = useState(2.3488) 
+  const [ zoom, setZoom] = useState( 10.9)
+
+
   const [viewport, setViewport] = useState({
     width: 609,
-    latitude: 48.8534,
-    longitude: 2.3488,
-    zoom: 10.9,
     captureScroll: true,
-    events: []
+    events: [],
+    doubleClickZoom: true,
   })
   
   const SetMarkers = () => {
     return (
-      eventsData.map(({Lat, Lng, Geo_name}, i)=>{
-      return <Marker key={`KEY$__${i}`} latitude={Number(Lat)} longitude={Number(Lng)} >
-        <img src={ require(`../../../assets/icons/sports/map/${eventsData[0].icon}.png`) } alt=""/>
+      eventsData.map(({Lat, Lng, Geo_name, icon}, i)=>{
+      return <Marker onClick={()=>{ console.log('ok') }} captureClick={console.log(' ok')} key={`KEY$__${i}`} latitude={Number(Lat)} longitude={Number(Lng)} >
+        <img style={{width: '30px', cursor: 'pointer'}} src={ require(`../../../assets/icons/sports/map/${icon}.png`)} alt=""/>
         </Marker>
       })
       )
@@ -29,7 +30,7 @@ const MapBox = ({ eventsData }) => {
 
 
     return (
-      <ReactMapGL {...viewport} style={{ width: '100%', minHeight: '30vw', flexGrow: 2, paddingTop: '80px' }} onViewportChange={viewport => { setViewport(viewport) }} mapboxApiAccessToken={MAPBOX_TOKEN}>
+      <ReactMapGL zoom={zoom} onClick={()=>{console.log(' ok')}}  longitude={longitude} latitude={latitude} {...viewport} style={{ width: '100%', minHeight: '30vw', flexGrow: 2, paddingTop: '80px' }} ViewportChange={(viewport) => setViewport({viewport})} mapboxApiAccessToken={MAPBOX_TOKEN}>
       <SetMarkers />
       </ReactMapGL>
       )

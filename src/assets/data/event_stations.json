@@ -1,0 +1,82 @@
+[
+  { 
+    "federation_id":28,
+    "name": "Stade Jean Bouin",
+    "icon":"rugby",
+    "location": [48.8433235, 2.2507473],
+    "stations": [
+      {
+        "name": "Boulogne Jean-Jaure",
+        "location": [48.842, 2.238889],
+        "affluence": 104274
+
+      },
+      {
+        "name": "Exelemans",
+        "location": [48.8429, 2.26003],
+        "affluence": 56609
+      },
+      {
+        "name": "Porte d'Auteuil",
+        "location": [48.848, 2.25774],
+        "affluence": 11441
+      },
+      {
+        "name": "Michel-Ange-Molitor",
+        "location": [48.8451, 2.26175],
+        "affluence": 56609
+      },
+      {
+        "name": "Porte de Saint-Cloud",
+        "location": [48.838, 2.25712],
+        "affluence": 103023
+      }
+    ]
+  },
+  { 
+    "federation_id":5,
+    "name": "stade de france",
+    "icon":"athletisme",
+    "location": [48.9244592, 2.3579758],
+    "stations": [
+      {
+        "name": "La plaine Stade de France",
+        "location": [48.9181, 2.36267],
+        "affluence": 148634
+      },
+      {
+        "name": "Saint-Denis porte de Paris",
+        "location": [48.9298, 2.35729],
+        "affluence": 110438
+      },
+      {
+        "name": "Stade de France Saint-Denis",
+        "location": [48.9176, 2.35039],
+        "affluence": 106328
+      }
+    ]
+  },
+  { 
+    "federation_id":39,
+    "name": "roland garros",
+    "icon":"tennis",
+    "location": [48.845767, 2.2478809],
+    "stations": [
+      {
+        "name": "Boulogne Jean-Jaure",
+        "location": [48.842, 2.238889],
+        "affluence": 104274
+      },
+      {
+        "name": "Exelemans",
+        "location": [48.8429, 2.26003],
+        "affluence": 56609
+      },
+      {
+        "name": "Porte d'Auteuil",
+        "location": [48.848, 2.25774],
+        "affluence": 11441
+      }
+    ]
+  }
+]

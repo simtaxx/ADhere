@@ -29,7 +29,7 @@ const SexeSelect = ({ category, title, data, setData, key }) => {
   }
 
   return(
-    <label className="input-button-container--sexe">
+    <label className={`input-button-audience-container input-button-audience-container--${category}`}>
       <input defaultChecked={ checked } onChange={()=>{ check( title, useRefButton ) }} className="input-button-sexe" name={ title } type="checkbox" ref={ useRefButton } />
       <span className={ checked ? "button-sexe is-active" : "button-sexe" }>
         <div className="button-text">

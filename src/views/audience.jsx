@@ -10,9 +10,11 @@ const Audience = () => {
 
   const sexe = [ 'Homme', 'Femme', 'Indifférent' ]
   const age = [ '0-4','5-9','10-14','15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80+','tout', ]
-  const csp = [ 'Agriculteur','cadres et profession intel.','profession intermediaire','Ouvrier','Employé','non actif','Retraité','Tout' ]
+  const csp = [ 'Agriculteur','cadres et profession intel.','profession intermediaire','Ouvrier','Employé','non actif','Retraité' ]
 
   const [ buttonData, setButtonData ] = useState( [] )
+
+  console.log(localStorage)
 
   const setParamsUp = () => {
     let data = Object.values(JSON.parse(localStorage.getItem("dateMission")))
@@ -48,7 +50,7 @@ const Audience = () => {
       <div className="big-gap">
         <h2>Audience de votre campagne</h2>
         <h3>Créez votre audience</h3>
-        <form>
+        <form className="form-audience">
           <h3>Choisissez le sexe de votre audience</h3>
           <div className="button-flex-container">
             {     
