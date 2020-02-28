@@ -1,24 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Donut from '../components/modules/chart/donutChart'
 import GanttChart from '../components/modules/chart/ganttChart'
 import EstimationChart from '../components/modules/chart/estimationChart'
 import Map from '../components/modules/map';
-
+import dataEventLocation from '../assets/json/event_stations.json'
 import Header from '../components/layouts/header'
 
 let data = [
   { name: "Jours séléctionée", value: "4", colors: "coral" },
   { name: "Jours restant", value: "6", colors: "white" }
 ];
+let data_1 = [
+  { name: "Jours séléctionée", value: "3", colors: "coral" },
+  { name: "Jours restant", value: "257", colors: "white" }
+];
+let data_2 = [
+  { name: "Jours séléctionée", value: "6", colors: "coral" },
+  { name: "Jours restant", value: "94", colors: "white" }
+];
+let data_3 = [
+  { name: "Jours séléctionée", value: "8", colors: "coral" },
+  { name: "Jours restant", value: "69", colors: "white" }
+];
+
 
 var data1 = [
   { date: "07/25/2024", value: 10000 },
   { date: "07/25/2024", value: 11000 },
   { date: "07/30/2024", value: 12000 },
   { date: "07/31/2024", value: 13000 },
-  { date: "08/02/2024", value: 14000 },
-  { date: "08/09/2024", value: 15000 },
-  { date: "07/26/2024", value: 16000 },
+  { date: "08/01/2024", value: 14000 },
+  { date: "08/02/2024", value: 15000 },
+  { date: "08/03/2024", value: 16000 },
   { date: "08/03/2024", value: 17000 },
   { date: "08/04/2024", value: 18000 },
   { date: "07/30/2024", value: 19000 },
@@ -64,39 +77,11 @@ var data1 = [
 ];
 
 var data2 = [
-  { dateA: "07/25/2024", dateB: "07/30/2024", federation: "athletisme", icon:'athletisme' },
-  { dateA: "07/29/2024", dateB: "08/03/2024", federation: "handball", icon:'handball'  },
-  { dateA: "08/05/2024", dateB: "08/09/2024", federation: "football", icon:'football' }
+  { dateA: "07/25/2024", dateB: "07/30/2024", federation: "tennis", icon:'tennis' },
+  { dateA: "07/29/2024", dateB: "08/03/2024", federation: "athletisme", icon:'athletisme'  },
+  { dateA: "08/05/2024", dateB: "08/09/2024", federation: "rugby", icon:'rugby' }
 ];
-var dataEventLocation = [
-  {
-    name: "Football",
-    icon:'football',
-    location: [48.8443038, 2.3743773],
-    stations: 0
-  },
-  {
-    name: "Athletisme",
-    icon:'athletisme',
-    location: [48.8620543, 2.3449645],
-    stations: 0
-  },
-  {
-    name: "Handball",
-    icon:'handball',
-    location: [48.8483634, 2.393789],
-    stations: [
-      {
-        name: "rue des boulet",
-        location: [48.8522705, 2.3872059]
-      },
-      {
-        name: "picpus",
-        location: [48.8449438, 2.3990587]
-      }
-    ]
-  }
-];
+
 
 var iconUrlStation = 'http://localhost:3000/station.png';
 
@@ -117,21 +102,21 @@ return (
             </p>
           </div>
           <div style={{display: 'grid', gridTemplateColumns:'1fr 3fr'}}>
-            <Donut id="2" data={data} height={"100px"} width={"100px"} style={{margin:'auto'}}/>
+            <Donut id="2" data={data_1} height={"100px"} width={"100px"} style={{margin:'auto'}}/>
             <p style={{display: 'flex', flexDirection:'column',  justifyContent:'center'}}>
               <span style={{color: '#F79256'}}>Le nombre d'évènements</span><br></br>
               que vous couvrerez sur les 360 évènements au total 
             </p>
           </div>
           <div style={{display: 'grid', gridTemplateColumns:'1fr 3fr'}}>
-            <Donut id="3" data={data} height={"100px"} width={"100px"} style={{margin:'auto'}}/>
+            <Donut id="3" data={data_2} height={"100px"} width={"100px"} style={{margin:'auto'}}/>
             <p style={{display: 'flex', flexDirection:'column', justifyContent:'center'}}>
               <span style={{color: '#F79256'}}>Le pourcentage de personnes</span><br></br>
               dans votre audience cible en moyenne, sur l'ensemble des élèments que vous couvrez 
             </p>
           </div>
           <div style={{display: 'grid', gridTemplateColumns:'1fr 3fr'}}>
-            <Donut id="4" data={data} height={"100px"} width={"100px"} style={{margin:'auto'}}/>
+            <Donut id="4" data={data_3} height={"100px"} width={"100px"} style={{margin:'auto'}}/>
             <p style={{display: 'flex', flexDirection:'column', justifyContent:'center'}}>
               <span style={{color: '#F79256'}}>Le nombre de gares</span><br></br>
               que vous avez sélectionné sur les 79 gares à proximité des évènements 
