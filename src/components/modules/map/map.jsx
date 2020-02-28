@@ -1,23 +1,42 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import L from "leaflet";
 
 import IconsJson from '../../../assets/data/icons.json'
+import PinStation from '../../../assets/data/pinStation.json'
+import AxiosGet from '../../mixins/axios'
 
-function Map(props) {
+const Map = ({eventsData}) => {
+
+  const [ select, setSelect ] = useState(  )
+  const [ init , setInit] = useState(  )
+
+  const setParamsUp = (e) => {
+    let newParams = {
+      meterRage: 1500
+    }
+    newParams.eventIds = e
+  }
+
+  let formatedParams = setParamsUp()
+  const [ params, setParams ] = useState( formatedParams )
+
+
   const mapAppFunc = () => {
-    var circles = [];
-    var maker = [];
-    var currentData = [];
-    var maker1 = [];
-    var nivZoom = 13; // initial zoom level
-    var currentView = [48.8620543, 2.3449645];
+    
+    let circles = [];
+    let maker = [];
+    let eventsData = [];
+    let maker1 = [];
+    let nivZoom = 13; // initial zoom level
+    let currentView = [48.8620543, 2.3449645];
+    setInit(true)
 
-    var mymap = L.map("map_id",{
+    let mymap = L.map("map_id",{
       scrollWheelZoom: false
     }).setView(currentView, nivZoom); // we initialize the map
-    var eventLocation = JSON.parse(localStorage.getItem("eventsData")); //dummy data in the goal to try  the principle
+    let eventLocation = eventsData; //dummy data in the goal to try  the principle
 
-    var Icon = L.Icon.extend({
+    let Icon = L.Icon.extend({
       // Création d'icone personalisée
        // Créer une variable suivant une condition
       options :{
@@ -26,7 +45,7 @@ function Map(props) {
         popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
       }
     }); // We initialise the icon
-    var stationIcon = L.Icon.extend({
+    let stationIcon = L.Icon.extend({
       // Création d'icone personalisée
       options : {
         iconSize: [30, 34], // size of the icon
@@ -54,26 +73,45 @@ function Map(props) {
     const onClickPin = (el, data) => {
       maker[el].on("click", e => {
         nivZoom = 15;
-        currentView = currentData[el].location;
-        mymap.setView(currentData[el].location, nivZoom);
+        currentView = [ eventsData[el].Lat, eventsData[el].Lng ];
+        mymap.setView(currentView, nivZoom);
 
         mymap.on("zoomend", function() {
-          var mapCenter = mymap.getCenter();
+          let mapCenter = mymap.getCenter();
           console.log(mapCenter)
+          let pinLocation = L.latLng([ eventsData[el].Lat, eventsData[el].Lng ]);
+          let mapCenterLat = (Math.round(mapCenter.lat * 1000) / 1000).toFixed(
+            3
+          );
+          let mapCenterLng = (Math.round(mapCenter.lng * 1000) / 1000).toFixed(
+            3
+          );
+          let pinLocationLat = (
+            Math.round(pinLocation.lat * 1000) / 1000
+          ).toFixed(3);
+          let pinLocationLng = (
+            Math.round(pinLocation.lng * 1000) / 1000
+          ).toFixed(3);
 
-            var eventStations = currentData[el].stations;
+          if (
+            mapCenterLat === pinLocationLat &&
+            mapCenterLng === pinLocationLng
+          ) {
+            eventsData[el].stations = Object.values(PinStation)
+            console.log(eventsData[el].stations)
+            let eventStations = eventsData[el].stations;
+            console.log(eventStations)
             if (eventStations.length > 1) {
-              eventStations.map(function(d1, index) {
-                var maker1Value = L.marker(d1.location, {
+              eventStations.map(function(element, index) {
+                console.log(element)
+                let maker1Value = L.marker([ element.Lat, element.Lng ], {
                   icon: new stationIcon({iconUrl:  require(`../../../assets/icons/sports/station/pin-${index+1}.png`)})
-                }).on("click", () => {
-                  alert(d1.name);
-                });
+                })
                 maker1.push(maker1Value);
                 maker1.forEach(element => {
                   mymap.removeLayer(element);
                 });
-                var zoomlevel = mymap.getZoom();
+                let zoomlevel = mymap.getZoom();
                 if (zoomlevel < 15) {
                   mymap.removeLayer(maker[el]);
                   maker.forEach(element => element.addTo(mymap));
@@ -93,7 +131,7 @@ function Map(props) {
                 console.log("Current Zoom Level =" + zoomlevel);
               });
             } else {
-              var zoomlevel = mymap.getZoom();
+              let zoomlevel = mymap.getZoom();
               if (zoomlevel < 15) {
                 maker.forEach(element => element.addTo(mymap));
                 mymap.removeLayer(circles[el]);
@@ -103,20 +141,21 @@ function Map(props) {
                 mymap.addLayer(circles[el]);
               }
             }
+          }
         });
       });
     };
 
     const instance = () => {
       eventLocation.map((element, i) => {
-        currentData.push(element);
+        eventsData.push(element);
         Object.values(IconsJson).forEach(icon => {
-          if ( icon.id === currentData[i].id_federation ) {
-            currentData[0].icon = icon.icon
+          if ( icon.id === eventsData[i].id_federation ) {
+            eventsData[0].icon = icon.icon
           }
         });
-        var makerValue = L.marker([ currentData[i].Lat, currentData[i].Lng ], { icon: new Icon({ iconUrl: require(`../../../assets/icons/sports/map/${currentData[0].icon}.png`)}) });
-        var circleValue = L.circle([ currentData[i].Lat, currentData[i].Lng ], {
+        let makerValue = L.marker([ eventsData[i].Lat, eventsData[i].Lng ], { icon: new Icon({ iconUrl: require(`../../../assets/icons/sports/map/${eventsData[0].icon}.png`)}) });
+        let circleValue = L.circle([ eventsData[i].Lat, eventsData[i].Lng ], {
           color: "blue",
           fillColor: "blue",
           fillOpacity: 0.1,
@@ -126,7 +165,7 @@ function Map(props) {
           circles.push(circleValue);
           maker[i].addTo(mymap);
           maker[i].bindPopup(
-            "<b>" + currentData[i].name + "</b><br>" + currentData[i].location
+            "<b>" + eventsData[i].name + "</b><br>" + eventsData[i].location
           );
           return onClickPin(i, element);
       });
@@ -142,13 +181,11 @@ function Map(props) {
   }
 
   useEffect(()=> {
-    if (props.eventLocationData && props.eventLocationData.length) {
-      mapAppFunc()
-    } 
-  });
+    mapAppFunc()
+  },[]);
   
   return (
-    <div id="map_id" className="map" style={{height: props.height}} />
+    <div id="map_id" className="map" style={{height: '1000px'}} />
     );
 }
 

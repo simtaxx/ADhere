@@ -15,7 +15,7 @@ const Audience = () => {
   const [ buttonData, setButtonData ] = useState( [] )
 
   const setParamsUp = () => {
-    let data = Object.values(JSON.parse(localStorage.getItem("missionData")))
+    let data = Object.values(JSON.parse(localStorage.getItem("dateMission")))
     let newParams = {}
     for (let i = 0; i < data.length; i++) {
       if (i === 0) {
@@ -39,7 +39,6 @@ const Audience = () => {
     ( async () => {
       const resultEvents = await AxiosGet( 'http://127.0.0.1:8000/events', {params})
       setDataEvents(resultEvents.data)
-      console.log(dataEvents)
     })()
   }, [params]);
   

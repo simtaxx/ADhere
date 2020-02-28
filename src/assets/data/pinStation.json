@@ -1,0 +1,42 @@
+{
+  "pin1" : {
+    "id": 1,
+    "icon": "pin-1"
+  },
+  "pin2" : {
+    "id": 2,
+    "icon": "pin-2"
+  },
+  "pin3" : {
+    "id": 3,
+    "icon": "pin-3"
+  },
+  "pin4" : {
+    "id": 4,
+    "icon": "pin-4"
+  },
+  "pin5" : {
+    "id": 5,
+    "icon": "pin-5"
+  },
+  "pin6" : {
+    "id": 6,
+    "icon": "pin-6"
+  },
+  "pin7" : {
+    "id": 7,
+    "icon": "pin-7"
+  },
+  "pin8" : {
+    "id": 8,
+    "icon": "pin-8"
+  },
+  "pin9" : {
+    "id": 9,
+    "icon": "pin-9"
+  },
+  "pin10" : {
+    "id": 10,
+    "icon": "pin-10"
+  }
+}
