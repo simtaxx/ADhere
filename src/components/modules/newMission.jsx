@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
@@ -7,9 +7,11 @@ import Save from '../ui/save'
 const NewMission = () => {
   
   const { register, handleSubmit } = useForm()
+  const [ dataForm, setDataForm ] = useState({})
 
   const saveData = (data) => {
     localStorage.setItem('missionData', JSON.stringify(data));
+    setDataForm(data)
   }
 
   return(

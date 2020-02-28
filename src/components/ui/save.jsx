@@ -1,9 +1,15 @@
 import React from 'react'
 
-const Save = () => {
+const Save = ( data ) => {
+  
+
+  const saveLS = (e) => {
+    e.preventDefault()
+    localStorage.setItem(data.category, JSON.stringify(data.data))
+  }
 
   return (
-    <input className="input-button" type="submit" value="SAUVEGARDER"/>
+    <input onClick={ saveLS } className="input-button" type="submit" value="SAUVEGARDER"/>
   )
 }
 

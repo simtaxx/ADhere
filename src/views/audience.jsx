@@ -1,17 +1,47 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
+import React, { useState, useEffect } from 'react'
 
 import Header from '../components/layouts/header'
 import Breadcrumb from '../components/modules/breadcrumb'
 import Save from '../components/ui/save'
+import SexeSelect from '../components/ui/sexeSelect'
+import AxiosGet from '../components/mixins/axios'
 
 const Audience = () => {
 
-  const { register, handleSubmit } = useForm()
+  const sexe = [ 'Homme', 'Femme', 'Indifférent' ]
+  const age = [ '0-4','5-9','10-14','15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80+','tout', ]
+  const csp = [ 'Agriculteur','cadres et profession intel.','profession intermediaire','Ouvrier','Employé','non actif','Retraité','Tout' ]
 
-  const saveData = (data) => {
-    localStorage.setItem('audienceData', JSON.stringify(data));
+  const [ buttonData, setButtonData ] = useState( [] )
+
+  const setParamsUp = () => {
+    let data = Object.values(JSON.parse(localStorage.getItem("missionData")))
+    let newParams = {}
+    for (let i = 0; i < data.length; i++) {
+      if (i === 0) {
+        console.log("title")
+      } else if (i === 1) {
+        newParams.begin = data[1]
+      } else if (i === 2) {
+        newParams.end = data[2]
+      }
+    }
+    return newParams
   }
+
+  let formatedParams = setParamsUp()
+  const [ dataEvents, setDataEvents ] = useState( [] )
+  const [ params, setParams ] = useState( formatedParams )
+ 
+  setParamsUp()
+
+  useEffect( () => {
+    ( async () => {
+      const resultEvents = await AxiosGet( 'http://127.0.0.1:8000/events', {params})
+      setDataEvents(resultEvents.data)
+      console.log(resultEvents.data)
+    })()
+  }, [params]);
   
   return(
     <div className="audience">
@@ -19,44 +49,32 @@ const Audience = () => {
       <div className="big-gap">
         <h2>Audience de votre campagne</h2>
         <h3>Créez votre audience</h3>
-        <p className="description">Définissez qui doit voir votre affichage</p>
-        <form onSubmit={handleSubmit(saveData)}>
-          <div className="input-container">
-            <p className="placeholder">Entrez le nom de votre audience</p>
-            <input className="input-text" type="text" name="audienceName" ref={register({ required: true })}/>
+        <form>
+          <h3>Choisissez le sexe de votre audience</h3>
+          <div className="button-flex-container">
+            {     
+              sexe.map( (sexe, index) => {
+                return <SexeSelect category="sexe" title={ sexe } data={ buttonData } setData={ setButtonData } key={ index } />
+              })
+            }
           </div>
-          <div className="input-container--flex">
-            <div className="input-container">
-              <p className="placeholder">Age minimum</p>
-              <input className="input-text" type="text" name="audienceAgeMin" ref={register({ required: true })}/>
-            </div>
-            <div className="input-container">
-              <p className="placeholder">Age maximum</p>
-              <input className="input-text" type="text" name="audienceAgeMax" ref={register({ required: true })}/>
-            </div>
+          <h3>Choisissez la ou les tranches d'âges de votre audience</h3>
+          <div className="button-flex-container">
+            {      
+              age.map( (age, index) => {
+                return <SexeSelect category="age" title={ age } data={ buttonData } setData={ setButtonData } key={ index }/>
+              })
+            }
           </div>
-          <div className="input-container--flex">
-            <div className="input-container">
-              <select  name="audienceSexe" ref={register({ required: true })}>
-                <option value="">Sexe</option>
-                <option value="ref1">Homme</option>
-                <option value="ref2">Femme</option>
-              </select>
-            </div>
-            <div className="input-container">
-              <select name="audienceCSP" ref={register({ required: true })}>
-                <option value="">Catégorie socio-professionnelle</option>
-                <option value="ref1">Agriculteur</option>
-                <option value="ref2">Cadre et profession intel.</option>
-                <option value="ref3">Profession intermédiaire</option>
-                <option value="ref4">Employé</option>
-                <option value="ref5">Ouvrier</option>
-                <option value="ref6">Retraité</option>
-                <option value="ref7">Non actif</option>
-              </select>
-            </div>
+          <h3>Choisissez la ou les catégories socio professionelles de votre audience</h3>
+          <div className="button-flex-container">
+            {      
+              csp.map( (csp, index) => {
+                return <SexeSelect category="csp" title={ csp } data={ buttonData } setData={ setButtonData } key={ index }/>
+              })
+            }
           </div>
-          <Save/>
+          <Save data={ buttonData } category="audienceData"/>
         </form>
         <Breadcrumb pathRef="audience" />
       </div>
