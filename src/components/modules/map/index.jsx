@@ -79,11 +79,11 @@ function Map(props) {
           ) {
             var eventStations = currentData[el].stations;
             if (eventStations.length > 1) {
-              eventStations.map(function(d1, index) {
-                var maker1Value = L.marker(d1.location, {
+              eventStations.map(function(dataStations, index) {
+                var maker1Value = L.marker(dataStations.location, {
                   icon: new stationIcon({iconUrl:  require(`../../../assets/icons/sports/station/pin-${index+1}.png`)})
                 }).on("click", () => {
-                  alert(d1.name);
+                  alert(dataStations.name);
                 });
                 maker1.push(maker1Value);
                 maker1.forEach(element => {
