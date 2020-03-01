@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Header from '../components/layouts/header'
 import Breadcrumb from '../components/modules/breadcrumb'
-import StationsCard from '../components/ui/stationsCard'
+// import StationsCard from '../components/ui/stationsCard'
 import AxiosGet from '../components/mixins/axios'
 import trialCard from '../assets/data/federation_list'
 import CardLeft from '../assets/data/cards.svg'
@@ -11,27 +11,20 @@ import Map from '../components/modules/map/map2'
 const Stations = () => {
   
   const [ eventsData, setEventsData ] = useState( [] )
-  const [ currentSelect, setCurrentSelect ] = useState( null )
   const [ select, setSelect ] = useState( false )
   const getEvents = async () => {
     const response = await AxiosGet( 'http://127.0.0.1:8000/events' )
     localStorage.setItem("eventsData",  JSON.stringify(response.data))
-    console.log(trialCard)
-    let resClean = response.data.map((event) => {
-      console.log(Object.values(trialCard))
+    /* let resClean = response.data.map((event) => {
       return Object.assign(event, Object.values(trialCard).find(({icon, id}) => [event.id_federation === id]))
-    })
-    
+    }) */
     setEventsData(response.data)
   }
 
-  console.log(eventsData)
 
   useEffect(()=> {
     getEvents()
   },[])
-
-
 
   return(
     <div className="audience">

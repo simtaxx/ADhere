@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   VictoryChart,
   VictoryBar,
@@ -6,10 +6,10 @@ import {
   VictoryScatter,
   VictoryAxis,
   VictoryTooltip
-} from "victory";
+} from "victory"
 
 const Pin = (props) => {
-  let icon = require(`../../../assets/icons/sports/gantt/${props.datum.icon}.png`);
+  let icon = require(`../../../assets/icons/sports/gantt/${props.datum.icon}.png`)
   return (
     <>
       <foreignObject
@@ -31,13 +31,13 @@ const Pin = (props) => {
         />
       </foreignObject>
     </>
-  );
-};
+  )
+}
 
 export default function GanttChart(props) {
-  let y0 = d => new Date(d.dateA);
-  let y = d => new Date(d.dateB);
-  let x = d => d.federation;
+  let y0 = d => new Date(d.dateA)
+  let y = d => new Date(d.dateB)
+  let x = d => d.federation
   return (
     <div style={{ width: props.width, height: props.height }}>
       <VictoryChart
@@ -101,5 +101,5 @@ export default function GanttChart(props) {
         />
       </VictoryChart>
     </div>
-  );
+  )
 }

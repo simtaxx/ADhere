@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 import L from "leaflet";
 
-function Map(props) {
+const Map = (props) => {
   const mapAppFunc = ()=> {
-    var circles = [];
-    var maker = [];
-    var currentData = [];
-    var maker1 = [];
-    var nivZoom = 13; // initial zoom level
-    var currentView = [48.8620543, 2.3449645];
+    let circles = [];
+    let maker = [];
+    let currentData = [];
+    let maker1 = [];
+    let nivZoom = 13; // initial zoom level
+    let currentView = [48.8620543, 2.3449645];
 
-    var mymap = L.map("map_id",{
+    let mymap = L.map("map_id",{
       scrollWheelZoom: false
     }).setView(currentView, nivZoom); // we initialize the map
-    var eventLocation = props.eventLocationData.dataEventLocation; //dummy data in the goal to try  the principle
+    let eventLocation = props.eventLocationData.dataEventLocation; //dummy data in the goal to try  the principle
 
-    var Icon = L.Icon.extend({
+    let Icon = L.Icon.extend({
       // Création d'icone personalisée
        // Créer une variable suivant une condition
 
@@ -26,7 +26,7 @@ function Map(props) {
       }
     }); // We initialise the icon
 
-    var stationIcon = L.Icon.extend({
+    let stationIcon = L.Icon.extend({
       // Création d'icone personalisée
       options : {
         iconSize: [30, 34], // size of the icon
@@ -58,18 +58,18 @@ function Map(props) {
         mymap.setView(currentData[el].location, nivZoom);
 
         mymap.on("zoomend", function() {
-          var mapCenter = mymap.getCenter();
-          var pinLocation = L.latLng(data.location);
-          var mapCenterLat = (Math.round(mapCenter.lat * 1000) / 1000).toFixed(
+          let mapCenter = mymap.getCenter();
+          let pinLocation = L.latLng(data.location);
+          let mapCenterLat = (Math.round(mapCenter.lat * 1000) / 1000).toFixed(
             3
           );
-          var mapCenterLng = (Math.round(mapCenter.lng * 1000) / 1000).toFixed(
+          let mapCenterLng = (Math.round(mapCenter.lng * 1000) / 1000).toFixed(
             3
           );
-          var pinLocationLat = (
+          let pinLocationLat = (
             Math.round(pinLocation.lat * 1000) / 1000
           ).toFixed(3);
-          var pinLocationLng = (
+          let pinLocationLng = (
             Math.round(pinLocation.lng * 1000) / 1000
           ).toFixed(3);
 
@@ -77,10 +77,10 @@ function Map(props) {
             mapCenterLat === pinLocationLat &&
             mapCenterLng === pinLocationLng
           ) {
-            var eventStations = currentData[el].stations;
+            let eventStations = currentData[el].stations;
             if (eventStations.length > 1) {
               eventStations.map(function(d1, index) {
-                var maker1Value = L.marker(d1.location, {
+                let maker1Value = L.marker(d1.location, {
                   icon: new stationIcon({iconUrl:  require(`../../../assets/icons/sports/station/pin-${index+1}.png`)})
                 }).on("click", () => {
                   alert(d1.name);
@@ -89,7 +89,7 @@ function Map(props) {
                 maker1.forEach(element => {
                   mymap.removeLayer(element);
                 });
-                var zoomlevel = mymap.getZoom();
+                let zoomlevel = mymap.getZoom();
                 if (zoomlevel < 15) {
                   mymap.removeLayer(maker[el]);
                   maker.forEach(element => element.addTo(mymap));
@@ -109,7 +109,7 @@ function Map(props) {
                 console.log("Current Zoom Level =" + zoomlevel);
               });
             } else {
-              var zoomlevel = mymap.getZoom();
+              let zoomlevel = mymap.getZoom();
               if (zoomlevel < 15) {
                 maker.forEach(element => element.addTo(mymap));
                 mymap.removeLayer(circles[el]);
@@ -128,8 +128,8 @@ function Map(props) {
       eventLocation.map((d, i) => {
         currentData.push(d);
         console.log(currentData);
-        var makerValue = L.marker(currentData[i].location, { icon: new Icon({ iconUrl: require(`../../../assets/icons/sports/map/${currentData[i].icon}.png`)}) });
-        var circleValue = L.circle(currentData[i].location, {
+        let makerValue = L.marker(currentData[i].location, { icon: new Icon({ iconUrl: require(`../../../assets/icons/sports/map/${currentData[i].icon}.png`)}) });
+        let circleValue = L.circle(currentData[i].location, {
           color: "blue",
           fillColor: "blue",
           fillOpacity: 0.1,

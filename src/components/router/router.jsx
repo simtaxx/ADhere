@@ -7,8 +7,8 @@ import Audience from '../../views/audience'
 import Trial from '../../views/trial'
 import DataViz from '../../views/dataviz'
 
-const Routes =  () => {
-  return(
+const Routes = () => {
+  return (
     <Router>
       <Route exact path="/" component={Home} />
       <Route path="/audience" component={Audience} />

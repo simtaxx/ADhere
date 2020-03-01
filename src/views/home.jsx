@@ -1,12 +1,11 @@
-import React from 'react'
+import React from "react"
 
-import Header from '../components/layouts/header'
-import NewMission from '../components/modules/newMission'
-import History from '../components/modules/history'
+import Header from "../components/layouts/header"
+import NewMission from "../components/modules/newMission"
+import History from "../components/modules/history"
 
 const Home = () => {
-
-  return(
+  return (
     <div className="home">
       <Header title="Accueil"></Header>
       <div className="big-gap">

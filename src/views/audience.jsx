@@ -1,27 +1,50 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react"
 
-import Header from '../components/layouts/header'
-import Breadcrumb from '../components/modules/breadcrumb'
-import Save from '../components/ui/save'
-import SexeSelect from '../components/ui/sexeSelect'
-import AxiosGet from '../components/mixins/axios'
+import Header from "../components/layouts/header"
+import Breadcrumb from "../components/modules/breadcrumb"
+import Save from "../components/ui/save"
+import SelectButton from "../components/ui/selectButton"
+import AxiosGet from "../components/mixins/axios"
 
 const Audience = () => {
+  const gender = ["Homme", "Femme", "Indifférent"]
+  const age = [
+    "0-4",
+    "5-9",
+    "10-14",
+    "15-19",
+    "20-24",
+    "25-29",
+    "30-34",
+    "35-39",
+    "40-44",
+    "45-49",
+    "50-54",
+    "55-59",
+    "60-64",
+    "65-69",
+    "70-74",
+    "75-79",
+    "80+",
+    "tout"
+  ]
+  const csp = [
+    "Agriculteur",
+    "cadres et profession intel.",
+    "profession intermediaire",
+    "Ouvrier",
+    "Employé",
+    "non actif",
+    "Retraité"
+  ]
 
-  const sexe = [ 'Homme', 'Femme', 'Indifférent' ]
-  const age = [ '0-4','5-9','10-14','15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75-79','80+','tout', ]
-  const csp = [ 'Agriculteur','cadres et profession intel.','profession intermediaire','Ouvrier','Employé','non actif','Retraité' ]
-
-  const [ buttonData, setButtonData ] = useState( [] )
-
-  console.log(localStorage)
+  const [buttonData, setButtonData] = useState([])
 
   const setParamsUp = () => {
     let data = Object.values(JSON.parse(localStorage.getItem("dateMission")))
     let newParams = {}
     for (let i = 0; i < data.length; i++) {
       if (i === 0) {
-        console.log("title")
       } else if (i === 1) {
         newParams.begin = data[1]
       } else if (i === 2) {
@@ -32,19 +55,21 @@ const Audience = () => {
   }
 
   let formatedParams = setParamsUp()
-  const [ dataEvents, setDataEvents ] = useState( [] )
-  const [ params, setParams ] = useState( formatedParams )
- 
+  const [dataEvents, setDataEvents] = useState([])
+  const [params, setParams] = useState(formatedParams)
+
   setParamsUp()
 
-  useEffect( () => {
-    ( async () => {
-      const resultEvents = await AxiosGet( 'http://127.0.0.1:8000/events', {params})
+  useEffect(() => {
+    (async () => {
+      const resultEvents = await AxiosGet("http://127.0.0.1:8000/events", {
+        params
+      })
       setDataEvents(resultEvents.data)
     })()
-  }, [params]);
-  
-  return(
+  }, [params])
+
+  return (
     <div className="audience">
       <Header title="Audience"></Header>
       <div className="big-gap">
@@ -53,29 +78,50 @@ const Audience = () => {
         <form className="form-audience">
           <h3>Choisissez le sexe de votre audience</h3>
           <div className="button-flex-container">
-            {     
-              sexe.map( (sexe, index) => {
-                return <SexeSelect category="sexe" title={ sexe } data={ buttonData } setData={ setButtonData } key={ index } />
-              })
-            }
+            {gender.map((sexe, index) => {
+              return (
+                <SelectButton
+                  category="gender"
+                  title={sexe}
+                  data={buttonData}
+                  setData={setButtonData}
+                  key={index}
+                />
+              )
+            })}
           </div>
           <h3>Choisissez la ou les tranches d'âges de votre audience</h3>
           <div className="button-flex-container">
-            {      
-              age.map( (age, index) => {
-                return <SexeSelect category="age" title={ age } data={ buttonData } setData={ setButtonData } key={ index }/>
-              })
-            }
+            {age.map((age, index) => {
+              return (
+                <SelectButton
+                  category="age"
+                  title={age}
+                  data={buttonData}
+                  setData={setButtonData}
+                  key={index}
+                />
+              )
+            })}
           </div>
-          <h3>Choisissez la ou les catégories socio professionelles de votre audience</h3>
+          <h3>
+            Choisissez la ou les catégories socio professionelles de votre
+            audience
+          </h3>
           <div className="button-flex-container">
-            {      
-              csp.map( (csp, index) => {
-                return <SexeSelect category="csp" title={ csp } data={ buttonData } setData={ setButtonData } key={ index }/>
-              })
-            }
+            {csp.map((csp, index) => {
+              return (
+                <SelectButton
+                  category="csp"
+                  title={csp}
+                  data={buttonData}
+                  setData={setButtonData}
+                  key={index}
+                />
+              )
+            })}
           </div>
-          <Save data={ buttonData } category="audienceData"/>
+          <Save data={buttonData} category="audienceData" />
         </form>
         <Breadcrumb pathRef="audience" />
       </div>

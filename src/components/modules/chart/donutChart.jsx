@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import * as d3 from "d3";
+import React, { useEffect } from "react"
+import * as d3 from "d3"
 
 function Donut(props) {
   const DonutAppFunc = () => {
-    var width = 500;
-    var height = Math.min(width, 500);
-    const radius = Math.min(width, height) / 2;
+    var width = 500
+    var height = Math.min(width, 500)
+    const radius = Math.min(width, height) / 2
 
     var pie = d3
       .pie()
       .padAngle(0.005)
       .sort(null)
-      .value(d => d.value);
+      .value(d => d.value)
 
     var arc = () => {
       console.log(
@@ -19,16 +19,16 @@ function Donut(props) {
           .arc()
           .innerRadius(radius * 0.67)
           .outerRadius(radius - 1)
-      );
+      )
       return d3
         .arc()
         .innerRadius(radius * 0.5)
         .outerRadius(radius - 1)
-        .padAngle(0);
-    };
-    var data = props.data;
+        .padAngle(0)
+    }
+    var data = props.data
     var chart = () => {
-      const arcs = pie(data);
+      const arcs = pie(data)
       const svg = d3
         .select(`#svg${props.id}`)
         .attr("viewBox", [
@@ -36,7 +36,7 @@ function Donut(props) {
           -height / 2 - 25,
           width + 50,
           height + 50
-        ]);
+        ])
 
       svg
         .append("defs")
@@ -45,7 +45,7 @@ function Donut(props) {
         .append("feDropShadow")
         .attr("dx", "-2")
         .attr("dy", "3")
-        .attr("stdDeviation", "5");
+        .attr("stdDeviation", "5")
 
       svg
         .append("g")
@@ -54,7 +54,7 @@ function Donut(props) {
         .join("path")
         .attr("fill", d => d.data.colors)
         .attr("d", arc())
-        .attr("filter", "url(#box-shadow)");
+        .attr("filter", "url(#box-shadow)")
 
       svg
         .append("g")
@@ -64,33 +64,33 @@ function Donut(props) {
         .attr("fill", d => d.data.colors)
         .attr("d", arc())
         .append("title")
-        .text(d => `${d.data.name}: ${d.data.value.toLocaleString()}`);
+        .text(d => `${d.data.name}: ${d.data.value.toLocaleString()}`)
 
       svg
         .append("g")
         .attr("font-family", "sans-serif")
         .attr("font-size", 100)
         .attr("text-anchor", "middle")
-        .attr("style", "transform:translate(0, 5%);")
+        .attr("style", "transform:translate(0, 5%)")
         .selectAll("text")
         .data(arcs)
         .join("text")
         .attr("fill", d => d.data.colors)
         .text(d => {
           if (d.data.colors === "white") {
-            return "";
+            return ""
           } else {
-            return d.data.value;
+            return d.data.value
           }
-        });
+        })
 
-      return svg.node();
-    };
+      return svg.node()
+    }
 
-    chart();
-  };
+    chart()
+  }
 
-  useEffect(DonutAppFunc, []);
+  useEffect(DonutAppFunc, [])
 
   return (
     <>
@@ -98,7 +98,7 @@ function Donut(props) {
         <svg id={`svg${props.id}`} style={{margin: 'auto'}}/>
       </div>
     </>
-  );
+  )
 }
 
-export default Donut;
+export default Donut

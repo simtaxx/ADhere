@@ -1,8 +1,8 @@
-import React from "react";
-import "./styles.css";
-import EstimationChart from "./estimation-chart";
+import React from "react"
+import "./styles.css"
+import EstimationChart from "./estimation-chart"
 
-var data = [
+let data = [
   { date: "07/25/2024", value: 10000 },
   { date: "07/25/2024", value: 11000 },
   { date: "07/30/2024", value: 12000 },
@@ -52,7 +52,7 @@ var data = [
   { date: "08/07/2024", value: 56000 },
   { date: "07/31/2024", value: 57000 },
   { date: "08/08/2024", value: 58000 }
-];
+]
 
 export default function App() {
   return (
@@ -60,5 +60,5 @@ export default function App() {
       <h1>Estimation de l'audience chaque jours</h1>
       <EstimationChart data={data} height="400px" width="600px" />
     </div>
-  );
+  )
 }

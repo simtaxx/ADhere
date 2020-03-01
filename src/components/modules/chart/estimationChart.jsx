@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   VictoryChart,
   VictoryLine,
@@ -6,11 +6,11 @@ import {
   VictoryTooltip,
   VictoryTheme,
   VictoryAxis
-} from "victory";
+} from "victory"
 
 export default function EstimationChart(props) {
-  let x = d => new Date(d.date);
-  let y = d => d.value;
+  let x = d => new Date(d.date)
+  let y = d => d.value
   return (
     <div style={{ width: props.width, height: props.height }}>
       <VictoryChart
@@ -74,7 +74,7 @@ export default function EstimationChart(props) {
                       target: "labels",
                       mutation: () => ({ active: true })
                     }
-                  ];
+                  ]
                 },
                 onMouseOut: () => {
                   return [
@@ -92,7 +92,7 @@ export default function EstimationChart(props) {
                       target: "labels",
                       mutation: () => ({ active: false })
                     }
-                  ];
+                  ]
                 }
               }
             }
@@ -100,5 +100,5 @@ export default function EstimationChart(props) {
         />
       </VictoryChart>
     </div>
-  );
+  )
 }

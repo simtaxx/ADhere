@@ -1,17 +1,27 @@
-import React, { useState } from 'react'
+import React from "react"
 
-const StationsCard = ( { isSelected, setIsSelected, fede, dateBegin,  location, focusedAudience, totalAudience, stations, countStation } ) => {
-
-  console.log(isSelected)
-  const selectEvent = () => {
-    console.log("lord")
-  }
-
-  return(
-    <div onClick={ selectEvent } className={ !isSelected ? "stations-card" : "station-card station-card__none" }>
+const StationsCard = ({
+  isSelected,
+  setIsSelected,
+  fede,
+  dateBegin,
+  location,
+  focusedAudience,
+  totalAudience,
+  stations,
+  countStation
+}) => {
+  return (
+    <div
+      className={
+        !isSelected ? "stations-card" : "station-card station-card__none"
+      }
+    >
       <div className="stations-card__title-container">
         <div className="stations-card__icon"></div>
-        <h4 className="stations-card__title">{fede} | du 28/07/24 au 4/08/24 | Stade Roland-Garros</h4>
+        <h4 className="stations-card__title">
+          {fede} | du 28/07/24 au 4/08/24 | Stade Roland-Garros
+        </h4>
       </div>
       <div className="stations-card__stats-container">
         <div className="stations-card__stat">
