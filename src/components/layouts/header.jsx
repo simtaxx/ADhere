@@ -5,6 +5,6 @@ export default (props) => (
     <header>
       <h1 className="logo">ADhere</h1>
       <p>{props.title}</p>
-      <p className="username">Lise Boulot</p>
+      <p className="username"></p>
     </header>
 )

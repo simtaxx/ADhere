@@ -34,15 +34,6 @@ header {
     cursor: pointer;
   }
   
-  .username:after {
-    content: '';
-    background-image: url('../../icons/down-arrow.svg');
-    position: absolute;
-    width: rem(8);
-    height: rem(6);
-    right: rem(20);
-    top: rem(29);
-  }
 
   .username:hover {
     box-shadow: rem(-2) rem(10) rem(7) rgba(96, 96, 96, 0.1);

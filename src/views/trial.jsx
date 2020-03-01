@@ -13,7 +13,6 @@ const Trial= () => {
 
   const [idPage , setIdPage] = useState(0)
   const [cards , setCards] = useState(0)
-  const [dataLocal, setDataLocal] = useState( [] )
   const [dataDetails, setDataDetails] = useState( [] )
   const [dataCsp, setDataCsp] = useState( [] )
 

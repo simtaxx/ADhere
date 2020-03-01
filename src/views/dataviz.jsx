@@ -3,6 +3,8 @@ import Donut from '../components/modules/chart/donutChart'
 import GanttChart from '../components/modules/chart/ganttChart'
 import EstimationChart from '../components/modules/chart/estimationChart'
 import Map from '../components/modules/map';
+import CardLeft from '../assets/data/cercle.svg'
+
 
 import Header from '../components/layouts/header'
 
@@ -108,43 +110,14 @@ return (
       <div style={{ width: '50vw', display: 'flex', alignContent: 'center', justifyContent: 'center', justifyItems: 'center', flexDirection: 'column' }}>
         <h2>Récapitulatif de votre campagne</h2>
         <h3>Votre mission en quelques chiffres </h3>
-        <div style={{display: 'grid', gridTemplateColumns : '1fr 1fr', gridAutoRows: 'minmax(150px, auto)'}}>
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <Donut id="1" data={data} height={"200px"} width={"200px"}/>
-            <p style={{display: 'flex', flexDirection:'column'}}>
-              <span style={{color: '#F79256'}}>Le nombre de jours</span><br></br>
-              séléctionné pour votre campagne sur les 15 jours d’épreuves
-            </p>
-          </div>
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <Donut id="2" data={data} height={"200px"} width={"200px"} />
-            <p style={{display: 'flex', flexDirection:'column'}}>
-              <span style={{color: '#F79256'}}>Le nombre de jours</span><br></br>
-              séléctionné pour votre campagne sur les 15 jours d’épreuves
-            </p>
-          </div>
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <Donut id="3" data={data} height={"200px"} width={"200px"} />
-            <p style={{display: 'flex', flexDirection:'column'}}>
-              <span style={{color: '#F79256'}}>Le nombre de jours</span><br></br>
-              séléctionné pour votre campagne sur les 15 jours d’épreuves
-            </p>
-          </div>
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <Donut id="4" data={data} height={"200px"} width={"200px"} />
-            <p style={{display: 'flex', flexDirection:'column'}}>
-              <span style={{color: '#F79256'}}>Le nombre de jours</span><br></br>
-              séléctionné pour votre campagne sur les 15 jours d’épreuves
-            </p>
-          </div>
-        </div>
+        <img style={ { width: '100%' } } src={ CardLeft } alt=""/>
         <h3>Estimation de l'audience chaque jour</h3>
         <EstimationChart data={data1} height="400px" width="100%" />
         <h3>Répartition des épreuves que vous avez sélectionnées</h3>
         <GanttChart data={data2} height="400px" width="100%" />
       </div>
-      <div style={{ width: '50vw' }}>
-        <Map height="90vh" eventLocationData={{ dataEventLocation }} iconUrl={{iconUrlStation }} />
+      <div style={{ width: '45vw', position: 'fixed', right: '20px' }}>
+        <Map height="600px" eventLocationData={{ dataEventLocation }} iconUrl={{iconUrlStation }} />
       </div>
     </div>
   </div>

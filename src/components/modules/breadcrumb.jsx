@@ -14,7 +14,7 @@ const Breadcrumb = ({ pathRef }) => {
     } else if ( pathRef === "trial" ) {
       return history.push( "/stations/stations" )
     } else if ( pathRef === "stations" ) {
-      return history.push( "/charts" )
+      return history.push( "/dataviz/dataviz" )
     }
   }
 
